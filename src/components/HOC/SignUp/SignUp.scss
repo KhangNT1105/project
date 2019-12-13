@@ -1,0 +1,31 @@
+form {
+    .input-field {
+        &.email {
+            margin-bottom: 0;
+        }
+    }
+
+    .form-check {
+        label {
+            cursor: pointer;
+            font-size: 14px;
+
+        }
+
+
+
+    }
+
+
+    >p {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 11px;
+        font-style: italic;
+
+        span {
+            color: red;
+
+        }
+    }
+}

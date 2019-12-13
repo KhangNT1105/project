@@ -1,0 +1,85 @@
+.courseDetailRight {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+
+    .courseDetailRight__content {
+        .courseDetailRight__cost {
+            text-align: center;
+
+            button {
+                &.cost {
+                    background-color: #5cbc87;
+                    width: 100%;
+                    height: 60px;
+                    border: none;
+                    outline: none;
+                    color: white;
+                    font-weight: 600;
+                    display: flex;
+                    justify-content: space-around;
+                    border-radius: 10px;
+                    font-size: 18px;
+                    transition:.3s;
+                    &:hover{
+                        background-color: red ;
+                    }
+                }
+
+                &.enroll {
+                    width: 270px;
+                    height: 60px;
+                    border-radius: 10px;
+                    font-size: 17px;
+                    font-weight: 600;
+                    border: 2px solid #17d292;
+                    background-color: transparent;
+                }
+            }
+
+            p {
+                padding: 10px 0;
+                margin: 0;
+            }
+        }
+
+        .courseDetailRight__info {
+            margin: 10px 0;
+
+            div {
+                padding: 25px 10px;
+                border-bottom: 2px solid black;
+                display: flex;
+                justify-content: space-between;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                span {
+                    font-weight: 600;
+
+                    svg {
+                        color: rgb(72, 72, 189);
+                        font-weight: 300;
+                        font-size: 28px;
+                    }
+                }
+            }
+        }
+
+        .courseDetailRight__sub {
+            .workingHours {
+                text-align: left;
+
+                p {
+                    font-size: 14px;
+                    font-weight: 500;;
+                    display: flex;
+                    justify-content: space-between;
+                    border-bottom: 1px dashed #e1e2e4;
+                }
+            }
+        }
+    }
+}

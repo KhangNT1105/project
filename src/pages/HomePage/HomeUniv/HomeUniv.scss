@@ -1,0 +1,104 @@
+.homeUniv {
+    background: url(../../../assets/img/univ.jpeg);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    width: 100%;
+    height: 433px;
+
+    .homeUniv__content {
+        padding: 40px 0;
+
+        .row {
+            align-items: flex-start;
+
+            .left {
+                h1 {
+                    color: white;
+                    font-weight: 800;
+                    font-size: 56px;
+                }
+
+                h2 {
+                    background-color: white;
+                    color: #f15b2a;
+                    padding: 8px;
+                    font-weight: 700;
+                    display: inline-block;
+                    margin-bottom: .5rem;
+                }
+
+                p {
+                    color: white;
+                }
+            }
+
+            .right {
+                h1 {
+
+                    color: white;
+
+                }
+
+                .calendar {
+                    border-radius: 5px;
+                    padding: 15px;
+                    width: 100%;
+                    height: 250px;
+                    background-color: white;
+                    position: relative;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 3px;
+                        height: 100%;
+                        background-color: #f15b2a;
+                    }
+
+                    .date {
+                        position: relative;
+
+                        h1 {
+                            color: black;
+                            font-size: 30px;
+                            position: relative;
+
+                            &::before {
+                                content: '-';
+                                position: absolute;
+                                font-size: 15px;
+                                color: grey;
+                                top: 0px;
+                                right: 0;
+                            }
+                        }
+
+                        span {
+                            position: absolute;
+                            top: -8px;
+                            right: -10px;
+
+                            em {
+                                font-size: 11px;
+                                position: relative;
+                                top: -10px;
+                            }
+                        }
+                    }
+
+                    .text {
+                        padding-left: 25px;
+
+                        h3 {
+                            font-size: 22px;
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

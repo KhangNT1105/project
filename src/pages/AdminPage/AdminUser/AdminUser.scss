@@ -1,0 +1,87 @@
+.adminUser {
+    .adminUser__content {
+        .adminUser__title {
+            h1 {
+                color: white;
+            }
+        }
+
+        .adminUser__search {
+            box-sizing: border-box;
+            outline: none;
+            border: 1px solid transparent;
+            color: white;
+            width: 100%;
+
+            input {
+                box-sizing: border-box;
+                outline: none;
+                border: 1px solid transparent;
+                color: white;
+                width: 100%;
+                background: #3E444A;
+                font-size: 18px;
+                padding: 15px;
+            }
+        }
+
+        .adminUser__addUser {
+            text-align: right;
+
+            button {
+                background-color: rgba(0, 0, 0, .11);
+                outline: none;
+                border: 1px solid transparent;
+            }
+        }
+
+        .adminUser__table {
+            .table__user {
+                background: rgba(0, 0, 0, .24);
+                color: white;
+
+                &.table-striped {
+                    tbody {
+                        tr {
+                            &:nth-of-type(odd) {
+                                background-color: rgba(0, 0, 0, .24);
+                            }
+                        }
+                    }
+                }
+
+                &.table-dark {
+                    border: 1px solid transparent;
+
+                    td {
+                        border-color: transparent;
+                    }
+                }
+
+
+                thead {
+                    th {
+                        border: 1px solid transparent;
+
+                    }
+                }
+
+
+
+            }
+        }
+    }
+}
+
+@media (min-width: 576px) {
+    .adminUser {
+        div {
+            .modal {
+                .modal-dialog {
+                    max-width: 800px !important;
+                }
+            }
+        }
+    }
+
+}

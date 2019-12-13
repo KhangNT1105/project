@@ -1,0 +1,49 @@
+.listCourseFilter {
+    margin-top: 50px;
+
+    .listCourseFilter__content {
+        background-color: #e7ebef;
+        padding: 50px 20px;
+
+        .row {
+            .col-md-4 {
+                p {
+                    select {
+                        width: 210px;
+                        height: 50px;
+                        padding: 10px;
+                        cursor: pointer;
+
+                        &:focus {
+                            outline: none
+                        }
+                    }
+                }
+            }
+
+            .search {
+                .input-group {
+                    justify-content: center;
+
+                    input {
+                        width: 380px;
+                        height: 50px;
+                        padding: 0 20px
+                    }
+
+                    .input-group-append {
+                        span {
+                            background-color: #478bca;
+                            color:white;
+                            svg{
+                                font-size: 18px;
+                                width:70px;
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

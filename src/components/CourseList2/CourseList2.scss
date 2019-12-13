@@ -1,0 +1,40 @@
+.courseList2 {
+    &:hover{
+        .courseList2__content{
+            .right{
+                .moTa{
+                    &::after{
+                        width:100%;
+                    }
+                }
+            }
+        }
+    }
+    .courseList2__content {
+        .right {
+            p {
+                &.review {
+                    align-items: center;
+                    display: flex;
+                    FiUsers{
+                        margin : 0 20px;
+                    }
+                }
+            }
+            .moTa{
+                height: 96px;
+                position: relative;
+                &::after{
+                    content: '';
+                    position: absolute;
+                    bottom: 10px;
+                    left:0;
+                    width: 200px;
+                    height: 3px;
+                    background-color:red;
+                    transition: .5s ease-in-out;
+                }
+            }
+        }
+    }
+}

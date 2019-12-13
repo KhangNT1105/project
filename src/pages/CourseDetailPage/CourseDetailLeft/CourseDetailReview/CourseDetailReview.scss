@@ -1,0 +1,49 @@
+.courseDetailReview {
+    padding: 50px;
+
+    .average__rating {
+        border: 2px solid black;
+        border-radius: 50%;
+        width: 242px;
+        height: 257px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        >.content {
+            text-align: center;
+
+            h1 {
+                font-weight: 300;
+                font-size: 90px;
+
+            }
+
+            span {
+                font-size: 13px;
+                font-weight: 700;
+            }
+        }
+    }
+    .detail__rating{
+        .content{
+            h5 {
+                padding-left:.75rem;
+            }
+            table{
+                tbody{
+                    tr{
+                        display: flex;
+                        align-items: center;
+                        td{
+                            border-top: none;
+                            &.bar{
+                                width:177px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

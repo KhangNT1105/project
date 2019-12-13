@@ -1,0 +1,132 @@
+.homeTeacher {
+    padding-top: 50px;
+    padding-bottom: 100px;
+
+    .title {
+        h1 {
+            position: relative;
+            margin-bottom: 60px;
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100px;
+                height: 4px;
+                background-color: black;
+
+            }
+        }
+    }
+
+    .homeTeacher__content {
+
+        .item {
+            &.item1 {
+                .homeTeacher__card {
+                    .content {
+                        background: linear-gradient(0deg, #c21833, transparent);
+                    }
+                }
+            }
+
+            &.item2 {
+                .homeTeacher__card {
+                    .content {
+                        background: linear-gradient(0deg, #8012a5, transparent);
+                    }
+                }
+            }
+
+            &.item3 {
+                .homeTeacher__card {
+                    .content {
+                        background: linear-gradient(0deg, #3a414c, transparent);
+                    }
+                }
+            }
+
+            &.item4 {
+                .homeTeacher__card {
+                    .content {
+                        background: linear-gradient(0deg, #90a214, transparent);
+                    }
+                }
+            }
+
+            .homeTeacher__card {
+                position: relative;
+                overflow: hidden;
+                border-radius: 10px;
+                transition: 0.3s;
+                height: 455px;
+
+                .img-box {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    transition: 0.3s;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                &:hover {
+                    box-shadow: 0 20px 20px rgba($color: #000000, $alpha: 0.2);
+
+
+
+                    .content {
+                        bottom: 0;
+                    }
+                }
+
+                .content {
+                    position: absolute;
+                    width: 100%;
+                    height: 60%;
+                    bottom: -100%;
+                    padding: 20px;
+                    box-sizing: border-box;
+                    text-align: center;
+                    transition: .5s;
+                    padding-top: 100px;
+
+                    p {
+                        margin: 0;
+                        padding: 0;
+                        font-size: 16px;
+                        color: #fff;
+                    }
+
+                    h3 {
+                        margin: 0 0 10px;
+                        padding: 0;
+                        color: #fff;
+                        font-size: 20px;
+
+                        span {
+                            color: #ffeb3b;
+                            font-size: 16px;
+                        }
+                    }
+
+                    ul {
+                        li {
+                            display: inline;
+
+                            a {
+                                color: white;
+                                padding: 20px 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

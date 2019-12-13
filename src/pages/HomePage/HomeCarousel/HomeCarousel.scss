@@ -1,0 +1,99 @@
+.carousel {
+    background-image: url('../../../assets/img/carousel_bg.jpg');
+    background-position: center;
+    background-repeat: none;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        height: 100vh;
+        width: 100%;
+    }
+
+    .carousel__search {
+        position: absolute;
+        text-align: center;
+        top: 60%;
+        left: 50%;
+        width: 60%;
+        transform: translate(-50%, -50%);
+
+        .result {
+            position: absolute;
+            top: 44%;
+            width: 90%;
+
+            .table {
+                text-align: left;
+                background: white;
+
+                tbody {
+                    tr {
+                        td {
+                            border-top: 1px solid grey;
+
+                            p {
+                                color: black;
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .input-group {
+            font-size: 50px;
+
+            .form-control {
+                height: 60px;
+            }
+        }
+
+        h1 {
+            color: white;
+            font-size: 50px;
+            font-weight: 400;
+
+            span {
+                font-weight: 600;
+            }
+        }
+
+        p {
+            color: #c8c8c8;
+            font-size: 18px;
+            padding-bottom: 15px;
+        }
+
+        .search__info {
+            margin-top: 50px;
+
+            ul {
+                display: flex;
+
+                li {
+                    width: 173px;
+                    height: 173px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .search__circle {
+                        padding: 20px 0;
+
+                        .search__icon {
+                            color: white;
+                            font-size: 35px;
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,104 @@
+.about {
+    padding: 50px 0;
+
+    .container {
+        .about__content {
+            div {
+                &:nth-child(1) {
+                    .about__item {
+                        &::before {
+                            background-color: #007ac1;
+
+                        }
+                    }
+                }
+
+                &:nth-child(2) {
+                    .about__item {
+                        &::before {
+                            background-color: #03a9f4;
+
+                        }
+                    }
+                }
+
+                &:nth-child(3) {
+                    .about__item {
+                        &::before {
+                            background-color: #67daff;
+
+                        }
+                    }
+                }
+
+                .about__item {
+                    position: relative;
+                    padding: 30px;
+                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                    overflow: hidden;
+
+                    .item {
+                        position: relative;
+                        z-index: 10;
+
+                        svg,
+                        .item__text {
+                            transition: 0.5s ease-in-out;
+
+                        }
+                    }
+
+                    &:hover {
+                        .item {
+
+                            svg,
+                            .item__text {
+                                color: white;
+                            }
+
+                        }
+
+                        &::before {
+                            bottom: 0;
+                        }
+                    }
+
+
+
+
+
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        bottom: calc(-100% + 4px);
+                        width: 100%;
+                        height: 100%;
+                        z-index: 1;
+                        background-color: #000;
+                        transition: 0.5s ease-in-out;
+
+
+                    }
+
+
+
+
+
+
+                    .item__text {
+                        h5 {
+                            font-size: 18px;
+                            font-weight: 600;
+                        }
+
+                        p {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

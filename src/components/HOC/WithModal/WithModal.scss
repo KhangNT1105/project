@@ -1,0 +1,90 @@
+.modal-body {
+    padding: .7rem 1rem;
+}
+
+.input-field {
+    position: relative;
+    height: 40px;
+    width: 100%;
+    margin: 40px 0;
+
+    label {
+        position: absolute;
+        font-size: 16px;
+        top: 0;
+        left: 0;
+        color: #555;
+        pointer-events: none;
+        display: block;
+        transition: 0.5s;
+
+    }
+
+    input {
+        position: absolute;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        font-size: 16px;
+        width: 100%;
+        outline: none;
+
+
+        &:focus+label,
+        &:valid+label {
+            transform: translateY(-35px);
+            font-size: 14px;
+            color: #fff;
+            background: #ff006a;
+            padding: 2px 6px;
+
+        }
+
+        &:focus~span::before,
+        &:valid~span::before {
+            transform: scaleX(1);
+            transform-origin: left;
+            transition: transform 0.5s ease-in-out;
+        }
+
+
+    }
+
+    span {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        display: block;
+        background: #e0f7fa;
+        width: 100%;
+        height: 2px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #00b0ff;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s ease-in-out;
+
+
+        }
+    }
+
+
+
+
+
+
+
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 380px;
+    }
+}

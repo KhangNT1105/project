@@ -1,0 +1,145 @@
+.footer {
+    background-color: #fdf6ea;
+    padding: 50px 0;
+
+
+    .footer__content {
+
+        .footer__about,
+        .footer__contact,
+        .footer__pages,
+        .footer__informed {
+
+            .footer__title {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    width: 60px;
+                    height: 3px;
+                    background-color: black;
+                    position: absolute;
+                    bottom: -15px;
+                    left: 0;
+                }
+
+                h3 {
+                    margin-bottom: 30px;
+                    font-weight: 600;
+                }
+
+                p {
+                    font-size: 14px;
+                }
+
+            }
+
+
+        }
+
+        .footer__about {
+            .footer__logo {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        .footer__pages {
+            ul {
+                li {
+                    a {
+                        text-decoration: none;
+                        color: black;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+
+        .dropup {
+            button {
+                border: 1px solid black;
+                background-color: transparent;
+                color: black;
+                font-size: 13px;
+                width: 158px;
+
+                i {
+                    padding-right: 10px;
+                    padding:10px 0;
+                }
+
+                span {
+                    padding-right: 30px;
+                }
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            .dropdown-menu {
+                a {
+                    font-size: 13px;
+                }
+            }
+        }
+
+        .footer__informed {
+            margin-top: 50px;
+
+            .footer__form {
+                input {
+                    &.form-control {
+                        border: 2px solid black;
+                        padding: 20px 10px;
+                        outline: none;
+
+                        &:focus {
+                            border: 2px solid black;
+
+                            outline: none;
+                            box-shadow: none;
+                        }
+                    }
+                }
+
+                div {
+                    button {
+                        &.input-group-text {
+                            border: 2px solid black;
+                            background-color: #fff8e1;
+                            color: black;
+                        }
+                    }
+                }
+
+
+                .footer__contact {
+
+                    span {
+                        svg {
+                            width: 40px;
+                            height: 40px;
+                            margin-right: 20px;
+                            border: 2px solid black;
+                            padding: 10px;
+                        }
+                    }
+                }
+
+                .form-check {
+                    padding-left: 0;
+
+                    input {
+                        margin-right: 10px;
+                    }
+
+                    span {
+                        font-style: italic;
+                    }
+                }
+            }
+        }
+    }
+}

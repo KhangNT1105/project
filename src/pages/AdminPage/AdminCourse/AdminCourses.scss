@@ -1,0 +1,87 @@
+.adminCourse {
+    .adminCourse__content {
+        h1 {
+            color: white
+        }
+
+        .adminCourse__search {
+            box-sizing: border-box;
+            outline: none;
+            border: 1px solid transparent;
+            color: white;
+
+            input {
+                background: #3E444A;
+                padding: 0 15px;
+            }
+        }
+
+        div {
+            .adminCourse__search {
+                width: 100%;
+                padding: 10px;
+                font-size: 20px;
+            }
+
+            .adminCourse__addCourse {
+                text-align: right;
+
+                button {
+                    background-color: rgba(0, 0, 0, .11);
+                    outline: none;
+                    border: 1px solid transparent;
+                }
+            }
+
+
+        }
+
+        .adminCourse__table {
+            .table__course {
+                background: rgba(0, 0, 0, .24);
+                color: white;
+
+                &.table-striped {
+                    tbody {
+                        tr {
+                            &:nth-of-type(odd) {
+                                background-color: rgba(0, 0, 0, .24);
+                            }
+                        }
+                    }
+                }
+
+                &.table-dark {
+                    border: 1px solid transparent;
+
+                    td {
+                        border-color: transparent;
+                    }
+                }
+
+
+                thead {
+                    th {
+                        border: 1px solid transparent;
+
+                    }
+                }
+
+
+                tr {
+                    td{
+                        h5{
+                        
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.btn-update {}
+
+.btn-delete {
+    background-color: #db4912;
+}

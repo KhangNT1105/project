@@ -1,0 +1,73 @@
+.homeHighlight {
+    padding: 50px 0;
+    height: 75vh;
+
+    .container {
+        div {
+            .homeHighlight__img {
+                position: relative;
+
+                img {
+                    position: absolute;
+
+                    &.book2 {
+                        top: 250px;
+                        right:  190px;
+                        animation: slideDown 3s infinite;
+                    }
+
+                    &.book1 {
+                        top: 100px;
+                        right: 90px;
+                        animation: slideDown 3s infinite 1s;
+
+                    }
+
+                    &.magnifier {
+                        right: 110px;
+                        top: 320px;
+                        animation: slideDown 3s infinite 2s;
+
+                    }
+
+                    &.bubblespeech {
+                        right: 90px;
+                        top: 50px;
+                        animation: slideDown 3s infinite 1.2s;
+
+                    }
+                }
+            }
+
+            .homeHighlight__content {
+                padding-top: 70px;
+
+                h1 {
+                    letter-spacing: 2px;
+                    margin-bottom: 40px;
+                }
+
+                p {
+                    font-size: 18px;
+                    margin-bottom: 40px;
+
+                }
+            }
+        }
+    }
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}

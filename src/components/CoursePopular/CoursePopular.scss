@@ -1,0 +1,91 @@
+.coursePopular {
+    >.card-deck {
+        >.card {
+            border: none;
+
+            &:hover {
+                .card-body {
+                    .card-author {
+                        &::before {
+                            width: 200px;
+                        }
+                    }
+                }
+            }
+
+            .card-img-top {
+                position: relative;
+                width: 312px;
+                height: 208px;
+                margin-bottom: 15px;
+
+                .card-overlay {
+                    position: absolute;
+                    bottom: 10px;
+                    right: 15px;
+                    width: 160px;
+                    height: 40px;
+                    background-color: #F15B2A;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: white;
+                    font-weight: 600;
+                    font-size: 16px;
+                }
+            }
+
+            .card-body {
+                padding: 0;
+
+                h5 {
+                    font-weight: 800;
+                    font-size: 18px;
+                    min-height: 50px;
+                }
+
+                >p {
+                    padding-top: 15px;
+                }
+
+                .card-author {
+                    position: relative;
+                    padding-bottom: 1px;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 100px;
+                        height: 3px;
+                        background-color: red;
+                        transition: width .5s ease-in-out;
+
+                    }
+
+
+
+                    p {
+                        font-weight: 600;
+                    }
+
+                }
+
+                .card-user {
+                    display: flex;
+                    align-items: center;
+                    font-weight: 600;
+                    justify-content: space-around;
+
+                    span {}
+
+                    >div {
+                        font-size: 18px;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+}

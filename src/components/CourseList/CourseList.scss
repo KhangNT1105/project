@@ -1,0 +1,64 @@
+.owl-carousel {
+    position: relative;
+
+    .owl-stage-outer {
+        .owl-stage {
+            .owl-item {
+                &:hover {
+                    .card {
+                        .card__img {
+                            .detail {
+                                opacity: 1;
+                            }
+
+                        }
+                    }
+                }
+
+                .card {
+                    position: relative;
+                    z-index: -1;
+
+
+                    .card-img-top {
+                        &::before {
+                            content: '';
+                            width: 100%;
+                        }
+                    }
+
+
+                }
+            }
+
+            .owl-item:first-child {
+                display: none;
+            }
+        }
+    }
+
+    .owl-nav {
+        position: absolute;
+        top: -80px;
+        right: 0;
+
+        & [class*=owl-] {
+            background: transparent;
+            color: black;
+
+
+        }
+
+        div {
+            color: black;
+            background: transparent;
+            font-size: 30px;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid black;
+        }
+    }
+}

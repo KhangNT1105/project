@@ -1,0 +1,58 @@
+.pagination {
+    justify-content: flex-end;
+
+    li {
+        padding: 0 5px;
+        outline: none;
+
+        &.page-item {
+            &.active {
+                outline: none;
+
+                a {
+
+                    border: 2px solid black;
+                }
+            }
+
+            &.disabled {
+                a {
+                    outline: none;
+                }
+            }
+        }
+
+        a {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid black;
+            transition: .3s ease;
+            color: black;
+            outline: none;
+
+            &:hover {
+                background-color: #478bca;
+                color: white !important;
+            }
+
+            &.active {
+                background-color: #478bca;
+                color: white;
+                outline: none;
+
+            }
+            &.page-link{
+                &:hover{
+                    border:2px solid black;
+                }
+                &:active{
+                    outline:none;
+                }
+            }
+        }
+    }
+}
