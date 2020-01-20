@@ -1,7 +1,8 @@
 .adminCourse {
     .adminCourse__content {
         h1 {
-            color: white
+            color: black;
+            font-weight: 800;
         }
 
         .adminCourse__search {
@@ -9,69 +10,72 @@
             outline: none;
             border: 1px solid transparent;
             color: white;
+            width: 100%;
+            display: flex;
+            justify-content: center;
 
-            input {
-                background: #3E444A;
-                padding: 0 15px;
-            }
-        }
+            .input-group {
+                width: 50%;
 
-        div {
-            .adminCourse__search {
-                width: 100%;
-                padding: 10px;
-                font-size: 20px;
-            }
-
-            .adminCourse__addCourse {
-                text-align: right;
-
-                button {
-                    background-color: rgba(0, 0, 0, .11);
+                input {
+                    box-sizing: border-box;
+                    outline: none;
+                    // border: 1px solid transparent;
+                    color: black;
+                    // background: #3E444A;
+                    font-size: 18px;
+                    padding: 20px;
                     outline: none;
                     border: 1px solid transparent;
+
+                    &:focus {
+                        border: 1px solid black;
+                        box-shadow: none;
+                    }
+
+                    &:visited {
+                        border: 1px solid transparent;
+                    }
+                }
+
+                .input-group-append {
+                    button {
+                        outline: none;
+                    }
                 }
             }
 
-
         }
 
-        .adminCourse__table {
-            .table__course {
-                background: rgba(0, 0, 0, .24);
-                color: white;
 
-                &.table-striped {
-                    tbody {
+
+        .adminCourse__table {
+            padding: 0 50px;
+
+            .adminCourse__table--content {
+                box-shadow: 0 1px 15px rgba(0, 0, 0, .04), 0 1px 6px rgba(0, 0, 0, .04);
+                border-radius: 15px;
+                background-color: #fff;
+                padding: 20px;
+
+
+                .table__course {
+                    border: none;
+
+                    thead {
                         tr {
-                            &:nth-of-type(odd) {
-                                background-color: rgba(0, 0, 0, .24);
+                            th {
+                                border-top: none;
+                                border-bottom: none;
                             }
                         }
                     }
-                }
 
-                &.table-dark {
-                    border: 1px solid transparent;
+                    tr {
+                        td {
+                            border: none;
 
-                    td {
-                        border-color: transparent;
-                    }
-                }
-
-
-                thead {
-                    th {
-                        border: 1px solid transparent;
-
-                    }
-                }
-
-
-                tr {
-                    td{
-                        h5{
-                        
+                            h5 {}
                         }
                     }
                 }

@@ -11,8 +11,8 @@ export default class HomeFact extends Component {
         return (
             <div className="homeFact">
                 <div className="container">
-                    <div className="homeFact__content">
-                        <div className="homeFact__item">
+                    <div className="homeFact__content row">
+                        <div className="homeFact__item col-md-3">
                             <div className="icon">
                                 <GiGraduateCap />
                             </div>
@@ -27,7 +27,7 @@ export default class HomeFact extends Component {
                                 <span>Students</span>
                             </div>
                         </div>
-                        <div className="homeFact__item">
+                        <div className="homeFact__item col-md-3">
                             <div className="icon">
                                 <GoBook />
                             </div>
@@ -41,7 +41,7 @@ export default class HomeFact extends Component {
                                 </CountUp>                                <span>Lessons</span>
                             </div>
                         </div>
-                        <div className="homeFact__item">
+                        <div className="homeFact__item col-md-3">
                             <div className="icon">
                                 <FaSwatchbook />
                             </div>
@@ -55,7 +55,7 @@ export default class HomeFact extends Component {
                                 </CountUp>                                <span>Excerises</span>
                             </div>
                         </div>
-                        <div className="homeFact__item">
+                        <div className="homeFact__item col-md-3">
                             <div className="icon">
                                 <IoMdLaptop />
                             </div>

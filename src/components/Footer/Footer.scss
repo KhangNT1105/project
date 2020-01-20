@@ -1,6 +1,13 @@
 .footer {
-    background-color: #fdf6ea;
+    background-color: #fcd21c;
     padding: 50px 0;
+    color:black
+
+
+
+
+
+    ;
 
 
     .footer__content {
@@ -17,7 +24,9 @@
                     content: '';
                     width: 60px;
                     height: 3px;
-                    background-color: black;
+                    background-color: black
+
+                    ;
                     position: absolute;
                     bottom: -15px;
                     left: 0;
@@ -108,8 +117,8 @@
                     button {
                         &.input-group-text {
                             border: 2px solid black;
-                            background-color: #fff8e1;
-                            color: black;
+                            background-color: #fcd21c;
+                            color:black
                         }
                     }
                 }

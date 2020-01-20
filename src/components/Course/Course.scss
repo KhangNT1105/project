@@ -2,11 +2,16 @@
     border: none;
     background-color: transparent;
 
-
+    
 
     .card__img {
         position: relative;
+        &:hover{
+            .detail{
+                opacity: 1;
 
+            }
+        }
         .card-img-top {
             height: 264px;
         }
@@ -63,20 +68,22 @@
 
             .right {
                 text-align: right;
-
+                span{
+                    font-size: 13px;
+                }
             }
 
             .cart {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-
                 p {
                     color: red;
                     font-weight: 600;
                     margin-bottom: 0;
                     font-size: 30px;
                 }
+            
             }
         }
     }

@@ -21,7 +21,7 @@
         left: 50%;
         width: 60%;
         transform: translate(-50%, -50%);
-
+  
         .result {
             position: absolute;
             top: 44%;
@@ -93,6 +93,28 @@
                         }
                     }
                 }
+            }
+        }
+    }
+}
+@media screen and (max-width: 576px){
+    .carousel{
+        .carousel__search{
+            top:50%;
+            width: 80%;
+            h1{
+                font-size: 40px;
+                
+            }
+            p{
+            font-size: 15px;
+            }
+            .search__info{
+                display:none;
+            }
+            .result{
+                top:93%;
+                width: 82%;
             }
         }
     }

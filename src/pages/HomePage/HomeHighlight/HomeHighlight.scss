@@ -4,40 +4,6 @@
 
     .container {
         div {
-            .homeHighlight__img {
-                position: relative;
-
-                img {
-                    position: absolute;
-
-                    &.book2 {
-                        top: 250px;
-                        right:  190px;
-                        animation: slideDown 3s infinite;
-                    }
-
-                    &.book1 {
-                        top: 100px;
-                        right: 90px;
-                        animation: slideDown 3s infinite 1s;
-
-                    }
-
-                    &.magnifier {
-                        right: 110px;
-                        top: 320px;
-                        animation: slideDown 3s infinite 2s;
-
-                    }
-
-                    &.bubblespeech {
-                        right: 90px;
-                        top: 50px;
-                        animation: slideDown 3s infinite 1.2s;
-
-                    }
-                }
-            }
 
             .homeHighlight__content {
                 padding-top: 70px;
@@ -68,6 +34,15 @@
 
     100% {
         transform: translateY(0);
+    }
+
+}
+
+@media screen and (max-width:768px) {
+    .homeHighlight {
+        .homeHighlight__animation {
+            display: none;
+        }
     }
 
 }

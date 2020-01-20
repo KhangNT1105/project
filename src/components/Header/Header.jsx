@@ -2,21 +2,20 @@
 import React, { Component, Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import "./Header.scss";
-import WithModal from "../HOC/WithModal/WithModal";
-import SignUp from "../HOC/SignUp/SignUp";
-import Login from "../HOC/Login/Login";
+
 import logo from "../../assets/img/logo_transparent.png";
+import logo1 from '../../assets/img/logo_transparent2.png'
 import UserLogin from "../UserLogin/UserLogin";
 import { connect } from "react-redux";
 import LoginAndSignUp from "../LoginAndSignUp/LoginAndSignUp";
 import { daDangNhap } from "../../redux/actions/QuanLyNguoiDungAction";
-let SignUpModal = WithModal(SignUp);
-let LoginModal = WithModal(Login);
+
 export class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userLogin: JSON.parse(localStorage.getItem("userLogin"))
+      userLogin: JSON.parse(localStorage.getItem("userLogin")),
+      isClosed: true,
     };
   }
 
@@ -26,21 +25,53 @@ export class Header extends Component {
     }
   }
 
-  renderLoginAndSignup = () => {
-    return <></>;
-  };
-  renderUser = () => {
-    return <></>;
-  };
   render() {
+    const isActive = (path, match, location) => !!(match || path === location.pathname);
+
     return (
       <Fragment>
         <header className="header">
           <div className="header__top">
             <div className="container">
               <div className="row align-items-center">
-                <div className="nav__xs col-2 ">
-                  <div className="drawer drawer--left">
+                <div className="nav__xs col-4 ">
+                  <div className="navbar__responsive">
+                    <input type="checkbox" name="" id="" />
+                    <span className="icon"></span>
+                    <ul className="navbar__responsive--menu">
+                      <li>
+                        <a className="" href="#">
+                          <img src={logo} width="90px" height="90px" alt="" />
+                        </a>
+                      </li>
+                      <li>
+                        <NavLink to="/"  >
+                          HOME
+                            </NavLink>
+                      </li>
+                      <li className="">
+                        <NavLink to="/courses">
+                          COURSE <span className="" />
+                        </NavLink>
+          
+                        {/* <ul >
+                          <li ><NavLink to="/courses/FrontEnd">FRONT END</NavLink></li>
+                          <li ><NavLink to="/courses/BackEnd">BACK END</NavLink></li>
+                          <li ><NavLink to="/courses/FullStack">FULLSTACK</NavLink></li>
+                          <li ><NavLink to="/courses/DiDong">MOBILE</NavLink></li>
+                          <li ><NavLink to="/courses/Design">DESIGN</NavLink></li>
+                          <li ><NavLink to="/courses/TuDuy">BEGINNER</NavLink></li>
+                        </ul> */}
+                      </li>
+                      <li>
+                        <NavLink to="/blog">BLOG</NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/about">ABOUT</NavLink>
+                      </li>
+                    </ul>
+                  </div>
+                  {/* <div className="drawer drawer--left">
                     <div role="banner">
                       <button
                         type="button"
@@ -53,25 +84,39 @@ export class Header extends Component {
                         <ul className="drawer-menu">
                           <li>
                             <a className="drawer-brand" href="#">
-                              Brand
+                              <img src={logo1} width="90px" height="90px" alt="" />
                             </a>
                           </li>
                           <li>
-                            <a className="drawer-menu-item" href="#">
-                              Nav1
-                            </a>
+                            <NavLink to="/"  >
+                              HOME
+                            </NavLink>
+                          </li>
+                          <li className="drawer-dropdown">
+                            <NavLink  to="/courses">
+                              COURSE <span className="drawer-caret" />
+                            </NavLink>
+                            <ul >
+                              <li ><NavLink to="/courses/FrontEnd">FRONT END</NavLink></li>
+                              <li ><NavLink to="/courses/BackEnd">BACK END</NavLink></li>
+                              <li ><NavLink to="/courses/FullStack">FULLSTACK</NavLink></li>
+                              <li ><NavLink to="/courses/DiDong">MOBILE</NavLink></li>
+                              <li ><NavLink to="/courses/Design">DESIGN</NavLink></li>
+                              <li ><NavLink to="/courses/TuDuy">BEGINNER</NavLink></li>
+                            </ul>
                           </li>
                           <li>
-                            <a className="drawer-menu-item" href="#">
-                              Nav2
-                            </a>
+                            <NavLink  to="/blog">BLOG</NavLink>
+                          </li>
+                          <li>
+                            <NavLink  to="/about">ABOUT</NavLink>
                           </li>
                         </ul>
                       </nav>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
-                <div className=" col-4 col-sm-4 col-md-3  ">
+                <div className=" col-4 col-sm-4 col-md-4 col-lg-3  ">
                   <NavLink
                     style={{ textDecoration: "none" }}
                     to="/"
@@ -83,7 +128,7 @@ export class Header extends Component {
                     </h1>
                   </NavLink>
                 </div>
-                <div className=" col-md-6 header__categories">
+                <div className=" col-md-7 col-lg-6 header__categories">
                   <nav className="navbar navbar-expand-sm  ">
                     <div
                       className="collapse navbar-collapse"
@@ -91,15 +136,29 @@ export class Header extends Component {
                     >
                       <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li className="nav-item active">
-                          <NavLink to="/" className="nav-link" href="#">
-                            HOME <span className="sr-only">(current)</span>
+                          <NavLink
+
+                            to="/"
+                            activeStyle={{
+                              color: '#67daff',
+                            }}
+                            exact
+                            className="nav-link"
+                            isActive={isActive.bind(this, '/')}
+                          >
+                            HOME
                           </NavLink>
                         </li>
                         <li className="nav-item nav__dropdown ">
                           <NavLink
+
+                            activeStyle={{
+                              color: '#67daff'
+                            }}
                             to="/courses"
                             className="nav-link drop"
-                            href="#"
+                            isActive={isActive.bind(this, '/courses')}
+
                           >
                             COURSE <span className="sr-only" />
                           </NavLink>
@@ -121,7 +180,7 @@ export class Header extends Component {
                                 </NavLink>
                               </li>
                               <li>
-                                <NavLink to="/courses/Mobile">Mobile</NavLink>
+                                <NavLink to="/courses/DiDong">Mobile</NavLink>
                               </li>
                               <li>
                                 <NavLink to="/courses/Design" href="">
@@ -134,26 +193,44 @@ export class Header extends Component {
                             </ul>
                           </div>
                         </li>
-                        <li className="nav-item ">
+                        {/* <li className="nav-item ">
                           <a className="nav-link" href="#">
                             EVENTS <span className="sr-only" />
                           </a>
-                        </li>
+                        </li> */}
                         <li className="nav-item ">
-                          <a className="nav-link" href="#">
+                          <NavLink
+                            activeStyle={{
+                              color: '#67daff'
+                            }}
+                            to="/blog" className="nav-link"
+                            isActive={isActive.bind(this, '/blog')}
+
+
+                          >
                             BLOG <span className="sr-only" />
-                          </a>
+
+                          </NavLink>
                         </li>
                         <li className="nav-item ">
-                          <a className="nav-link" href="#">
+                          <NavLink to="/about"
+
+                            activeStyle={{
+                              color: '#67daff'
+                            }}
+                            className="nav-link"
+                            isActive={isActive.bind(this, '/about')}
+
+
+                          >
                             ABOUT <span className="sr-only" />
-                          </a>
+                          </NavLink>
                         </li>
                       </ul>
                     </div>
                   </nav>
                 </div>
-                <div className=" header__contact col-3  text-right">
+                <div className=" header__contact col-4 col-sm-4 col-md-4 col-lg-3  text-right">
                   <div className="contact   ">
                     {/* <div className="shopping__cart">
                       <GiShoppingCart className="cart " />

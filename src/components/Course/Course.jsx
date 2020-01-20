@@ -7,7 +7,7 @@ import StarReviews from "../StarReviews/StarReviews";
 import { dangKyKhoaHoc } from "../../redux/actions/QuanLyKhoaHocAction";
 
 export class Course extends Component {
-  componentDidMount() {}
+  componentDidMount() { }
   render() {
     let { item } = this.props;
     return (
@@ -41,7 +41,7 @@ export class Course extends Component {
               </div>
               <div className="col-md-6 right">
                 <StarReviews />{" "}
-                <span> (344 votes, average: 4.22 out of 5)</span>
+                <span> ({item.luotXem} votes, average: 4.22 out of 5)</span>
               </div>
               <div className=" col-md-12 mt-3 cart">
                 <button

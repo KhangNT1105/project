@@ -6,13 +6,15 @@ import ListCourseFilter from "./ListCourseFilter/ListCourseFilter";
 import LoadingComponent from '../../components/LoadingComponent/LoadingComponent'
 import ListCourseContent from "./ListCourseContent/ListCourseContent";
 import OverlayCourse from "../../components/HOC/CourseOverlay/CourseOverlay";
+import Loader from "../../components/Loader/Loader";
 const CourseOverlay = OverlayHeader(OverlayCourse);
 
 export class ListCoursePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      maDanhMuc: ""
+      maDanhMuc: "",
+      loading: true,
     };
   }
   componentWillUnmount() {
@@ -23,6 +25,11 @@ export class ListCoursePage extends Component {
     this.setState({
       maDanhMuc: maDanhMuc
     });
+    setTimeout(() => {
+      this.setState({
+        loading: false,
+      })
+    }, 1000);
   }
   componentDidUpdate(prevProps) {
     if (prevProps !== this.props) {
@@ -35,11 +42,15 @@ export class ListCoursePage extends Component {
 
   render() {
     return (
-      <div className="listCoursePage">
-        <CourseOverlay />
-        <ListCourseFilter maDanhMuc={this.state.maDanhMuc} />
-        <ListCourseContent />
-      </div>
+      <>
+        {
+          this.state.loading ? <Loader /> : <div className="listCoursePage">
+            <CourseOverlay />
+            <ListCourseFilter maDanhMuc={this.state.maDanhMuc} />
+            <ListCourseContent />
+          </div>
+        }
+      </>
     );
   }
 }

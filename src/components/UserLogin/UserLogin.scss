@@ -49,6 +49,9 @@
                     a {
                         font-weight: normal;
 
+                        &:hover {
+                            color: rgb(103, 218, 255);
+                        }
                     }
                 }
             }

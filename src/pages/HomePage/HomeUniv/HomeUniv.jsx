@@ -7,12 +7,12 @@ export default class HomeUniv extends Component {
                 <div className="container">
                     <div className="homeUniv__content">
                         <div className="row">
-                            <div className="col-md-8 left">
+                            <div className="col-12 col-lg-8 left">
                                 <h1>Calendar Events</h1>
                                 <h2>Be ready to join following events this fall.</h2>
                                 <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ‘Content here, content here’</p>
                             </div>
-                            <div className="col-md-4 right">
+                            <div className="col-12 col-lg-4 right">
                                 <h1>NOVEMBER,2019</h1>
                                 <div className="calendar">
                                     <div className="row">

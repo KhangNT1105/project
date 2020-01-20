@@ -17,22 +17,24 @@ export default class CoursePopular extends Component {
     let { item } = this.props;
     return (
       <div className="coursePopular ">
-        <div className="card-deck mb-5">
+        <div className="card-deck ">
           <div className="card">
             <div className="card-img-top">
-              <img className="card-img-top" src={item.hinhAnh} alt="" />
+              <img className="card-img-top" width="100%" src={item.hinhAnh} alt="" />
               <div className="card-overlay">
                 <span>{this.maDanhMuc()}</span>
               </div>
             </div>
             <div className="card-body">
-              <h5 className="card-title">{item.tenKhoaHoc}</h5>
+              <h5 className="card-title">   {item.moTa.length > 50
+                ? item.tenKhoaHoc.slice(0, 50) + "..."
+                : item.tenKhoaHoc}</h5>
               <div className="card-author">
                 <p>Chrish Haroun</p>
               </div>
               <p className="card-text">
-                {item.moTa.length > 145
-                  ? item.moTa.slice(0, 145) + "..."
+                {item.moTa.length > 120
+                  ? item.moTa.slice(0, 120) + "..."
                   : item.moTa}
               </p>
               <div className="card-user">

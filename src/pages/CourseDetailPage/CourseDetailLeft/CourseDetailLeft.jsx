@@ -7,7 +7,7 @@ import StarReviews from "../../../components/StarReviews/StarReviews";
 import CourseDetailDescription from "./CourseDetailDescription/CourseDetailDescription";
 import CourseDetailReview from "./CourseDetailReview/CourseDetailReview";
 import CourseDetailCurriculum from "./CourseDetailCurriculum/CourseDetailCurriculum";
-import { layDanhSachKhoaHoc } from "../../../redux/actions/QuanLyKhoaHocAction";
+import {  layDanhMucKhoaHoc } from "../../../redux/actions/QuanLyKhoaHocAction";
 export class CourseDetailLeft extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +25,7 @@ export class CourseDetailLeft extends Component {
       });
     }
   }
-  
+
   render() {
     let { khoaHocDaChon } = this.props;
     console.log("danh muc", khoaHocDaChon.danhMucKhoaHoc);
@@ -48,7 +48,7 @@ export class CourseDetailLeft extends Component {
                 <GoListUnordered />
                 <div className="category__text">
                   <p>Category</p>
-                  {this.state.danhMucKhoaHoc}
+                  { khoaHocDaChon.danhMucKhoaHoc? khoaHocDaChon.danhMucKhoaHoc.maDanhMucKhoahoc:"Thí đi"}
                 </div>
               </div>
             </div>
@@ -139,7 +139,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
   return {
     layDanhMucKhoaHoc: () => {
-      dispatch(layDanhSachKhoaHoc());
+      dispatch(layDanhMucKhoaHoc());
     }
   }
 }

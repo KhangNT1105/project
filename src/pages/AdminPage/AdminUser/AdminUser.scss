@@ -2,7 +2,8 @@
     .adminUser__content {
         .adminUser__title {
             h1 {
-                color: white;
+                color: black;
+                font-weight: 800;
             }
         }
 
@@ -12,62 +13,80 @@
             border: 1px solid transparent;
             color: white;
             width: 100%;
+            display: flex;
+            justify-content: center;
 
-            input {
-                box-sizing: border-box;
-                outline: none;
-                border: 1px solid transparent;
-                color: white;
-                width: 100%;
-                background: #3E444A;
-                font-size: 18px;
-                padding: 15px;
+            .input-group {
+                width: 50%;
+
+                input {
+                    box-sizing: border-box;
+                    outline: none;
+                    // border: 1px solid transparent;
+                    color: black;
+                    // background: #3E444A;
+                    font-size: 18px;
+                    padding: 20px;
+                    outline: none;
+                    border: 1px solid transparent;
+
+                    &:focus {
+                        border: 1px solid black;
+                        box-shadow: none;
+                    }
+
+                    &:visited {
+                        border: 1px solid transparent;
+                    }
+                }
+
+                .input-group-append {
+                    button {
+                        outline: none;
+                    }
+                }
             }
+
         }
 
         .adminUser__addUser {
-            text-align: right;
+            text-align: center;
 
             button {
-                background-color: rgba(0, 0, 0, .11);
-                outline: none;
-                border: 1px solid transparent;
+                // background-color: rgba(0, 0, 0, .11);
+                // outline: none;
+                // border: 1px solid transparent;
             }
         }
 
         .adminUser__table {
-            .table__user {
-                background: rgba(0, 0, 0, .24);
-                color: white;
+            padding: 0 50px;
 
-                &.table-striped {
+            .adminUser__table--content {
+                box-shadow: 0 1px 15px rgba(0, 0, 0, .04), 0 1px 6px rgba(0, 0, 0, .04);
+                padding: 20px;
+                background-color: #fff;
+                border: transparent;
+                border-radius: 15px;
+
+                table {
+
+                    thead {
+                        tr {
+                            th {
+                                border: none;
+                            }
+                        }
+                    }
+
                     tbody {
                         tr {
-                            &:nth-of-type(odd) {
-                                background-color: rgba(0, 0, 0, .24);
+                            td {
+                                border: none;
                             }
                         }
                     }
                 }
-
-                &.table-dark {
-                    border: 1px solid transparent;
-
-                    td {
-                        border-color: transparent;
-                    }
-                }
-
-
-                thead {
-                    th {
-                        border: 1px solid transparent;
-
-                    }
-                }
-
-
-
             }
         }
     }

@@ -84,22 +84,26 @@ function AddUser(props) {
               value={state.user.taiKhoan}
               required
               onChange={handleChange}
+              autoComplete="off"
+
             />
           ) : (
-            <input
-              type="text"
-              id="taiKhoan"
-              name="taiKhoan"
-              value={state.user.taiKhoan}
-              required
-            />
-          )}
+              <input
+                type="text"
+                id="taiKhoan"
+                name="taiKhoan"
+                value={state.user.taiKhoan}
+                required
+                autoComplete="off"
+
+              />
+            )}
           <label>User Name</label>
           <span></span>
         </div>
         <div className="input-field ">
           <input
-            type="text"
+            type="password"
             id="matKhau"
             name="matKhau"
             value={state.user.matKhau}
@@ -114,6 +118,8 @@ function AddUser(props) {
             type="text"
             id="hoTen"
             name="hoTen"
+            autoComplete="off"
+
             value={state.user.hoTen}
             required
             onChange={handleChange}
@@ -140,6 +146,8 @@ function AddUser(props) {
             name="email"
             value={state.user.email}
             required
+            autoComplete="off"
+
             onChange={handleChange}
           />
           <label htmlFor="">Email</label>

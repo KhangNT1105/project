@@ -16,7 +16,7 @@ export class HomeCourse extends Component {
             <h1>COURSES</h1>
           </div>
           <div className="row">
-            <div className="col-md-4 ">
+            <div className="col-xs-12 col-md-4 ">
               <div className="homeCourse__content">
                 <h3>About Course</h3>
                 <p>
@@ -33,7 +33,7 @@ export class HomeCourse extends Component {
                 <NavLink to="/courses">VIEW ALL COURSES</NavLink>
               </div>
             </div>
-            <div className="mt-sm-5 col-md-8">
+            <div className="mt-5 col-xs-12 col-md-8">
               <CourseList
                 mangDanhSachKhoaHoc={this.props.mangDanhSachKhoaHoc}
               />

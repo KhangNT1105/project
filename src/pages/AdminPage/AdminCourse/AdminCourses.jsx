@@ -11,7 +11,8 @@ import {
 import "./AdminCourses.scss";
 import WithModal from "../../../components/HOC/WithModal/WithModal";
 import AddCourse from "../../../components/HOC/AddCourse/AddCourse";
-
+import NotFound from '../../../components/NotFound/NotFound'
+import LoadingComponent from "../../../components/LoadingComponent/LoadingComponent";
 let AddCourseModal = WithModal(AddCourse);
 export class AdminCourses extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ export class AdminCourses extends Component {
     this.props.layDanhSachKhoaHoc();
   }
   modalUpdate = maKhoaHoc => {
-    this.props.layChiTietKhoaHoc(maKhoaHoc);
+    this.props.layChiTietKhoaHoc(maKhoaHoc,0);
     this.setState({
       title: "Update Course"
     });
@@ -97,18 +98,38 @@ export class AdminCourses extends Component {
     });
     console.log(this.state.tenKhoaHoc);
     this.props.timKiemKhoaHoc(this.state.tenKhoaHoc);
+    // let listCourses = this.props.mangDanhSachKhoaHoc.map((item) => {
+    //   return item.tenKhoaHoc.toLowerCase().indexOf(this.state.tenKhoaHoc) !== -1;
+    // })
+    // console.log(listCourses);
+    // this.props.mangDanhSachKhoaHoc=listCourses;
   };
   render() {
     console.log("props khoa hoc", this.props.khoaHocDaChon);
+    console.log("loading", this.props.loading);
     return (
-      <div className="adminCourse">
-        <div className="row adminCourse__content">
-          <div className="col-md-12">
-            <div className="adminCourse__title text-center pb-5">
-              <h1>Course</h1>
+      <>
+        <div className="adminCourse">
+          <div className="row adminCourse__content">
+            <div className="col-md-12 adminCourse__search">
+              <div className="input-group  mb-3">
+                <input type="text" placeholder="Search Course"
+                  value={this.state.tenNguoiDung}
+                  onKeyUp={this.handleChange}
+                  onChange={this.handleChange}
+                  onKeyDown={this.handleChange}
+                  className=" form-control" />
+                <div className="input-group-append">
+                  <button className=" btn btn-info" id="basic-addon2">Search</button>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="col-md-4 adminCourse__search">
+            <div className="col-md-12">
+              <div className="adminCourse__title text-center pb-3">
+                <h1>List Courses</h1>
+              </div>
+            </div>
+            {/* <div className="col-md-4 adminCourse__search">
             <input
               type="text"
               placeholder="Search Course"
@@ -118,41 +139,54 @@ export class AdminCourses extends Component {
               onKeyDown={this.handleChange}
               className="adminCourse__search"
             />
-          </div>
-          <div className="col-md-8">
-            <div className="adminCourse__addCourse">
-              <button
-                className="btn btn-success btn-lg "
-                onClick={() => {
-                  this.modalAdd();
-                }}
-                data-toggle="modal"
-                data-target="#modelId2"
-              >
-                Add Course
+          </div> */}
+            <div className="col-md-12">
+              <div className="adminCourse__addCourse text-center">
+                <button
+                  className="btn btn-success btn-lg "
+                  onClick={() => {
+                    this.modalAdd();
+                  }}
+                  data-toggle="modal"
+                  data-target="#modelId2"
+                >
+                  Add Course
               </button>
+              </div>
             </div>
+            {this.props.loading ? <div className="col-md-12">
+              <LoadingComponent />
+            </div> :
+              this.props.mangDanhSachKhoaHoc.length === 0 ? <div className="col-md-12">
+                <NotFound />
+              </div> :
+                <div className="col-md-12 mt-5 adminCourse__table">
+
+                  <div className="adminCourse__table--content">
+
+                    <table class="table__course table  table-striped ">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Picture</th>
+                          <th scope="col">Course Name</th>
+                          <th scope="col">Created By</th>
+                          <th scope="col">Published at</th>
+                          <th scope="col">
+                            <IoMdSettings />
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>{this.renderTable()}</tbody>
+                    </table>
+                  </div>
+                </div>
+
+            }
           </div>
-          <div className="col-md-12 mt-5 adminCourse__table">
-            <table class="table__course table table-dark table-striped ">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Picture</th>
-                  <th scope="col">Course Name</th>
-                  <th scope="col">Created By</th>
-                  <th scope="col">Published at</th>
-                  <th scope="col">
-                    <IoMdSettings />
-                  </th>
-                </tr>
-              </thead>
-              <tbody>{this.renderTable()}</tbody>
-            </table>
-          </div>
+          <AddCourseModal title={this.state.title} modalId="modelId2" />
         </div>
-        <AddCourseModal title={this.state.title} modalId="modelId2" />
-      </div>
+      </>
     );
   }
 }
@@ -160,7 +194,8 @@ export class AdminCourses extends Component {
 const mapStateToProps = state => {
   return {
     mangDanhSachKhoaHoc: state.QuanLyKhoaHocReducer.mangDanhSachKhoaHoc,
-    khoaHocDaChon: state.QuanLyKhoaHocReducer.khoaHocDaChon
+    khoaHocDaChon: state.QuanLyKhoaHocReducer.khoaHocDaChon,
+    loading: state.QuanLyKhoaHocReducer.loading,
   };
 };
 const mapDispatchToProps = dispatch => {
@@ -174,8 +209,8 @@ const mapDispatchToProps = dispatch => {
     timKiemKhoaHoc: tenKhoaHoc => {
       dispatch(timKiemKhoaHoc(tenKhoaHoc));
     },
-    layChiTietKhoaHoc: maKhoaHoc => {
-      dispatch(layChiTietKhoaHoc(maKhoaHoc));
+    layChiTietKhoaHoc: (maKhoaHoc,loading) => {
+      dispatch(layChiTietKhoaHoc(maKhoaHoc,loading));
     }
   };
 };

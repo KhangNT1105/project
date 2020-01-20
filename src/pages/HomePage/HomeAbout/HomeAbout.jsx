@@ -8,7 +8,7 @@ export default class HomeAbout extends Component {
       <section className="about ">
         <div className="container ">
           <div className="row about__content">
-            <div className="col-md-4">
+            <div className="col-12 col-lg-4 ">
               <div className="about__item">
                 <div className="item">
                   <GiWorld size="50px" />
@@ -22,7 +22,7 @@ export default class HomeAbout extends Component {
                 </div>
               </div>
             </div>
-            <div className="col-md-4">
+            <div className="col-12 col-lg-4">
               <div className="about__item">
                 <div className="item">
                   <IoIosDesktop size="50px" />
@@ -37,7 +37,7 @@ export default class HomeAbout extends Component {
                 </div>
               </div>
             </div>
-            <div className="col-md-4">
+            <div className="col-12 col-lg-4">
               <div className="about__item">
                 <div className="item">
                   <IoMdCalendar size="50px" />

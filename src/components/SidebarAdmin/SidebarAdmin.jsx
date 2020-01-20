@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import {
-  FaTachometerAlt,
-  FaUserCog,
-  FaReact,
-  FaEnvelope
-} from "react-icons/fa";
+  AiOutlineUser,
+  AiOutlineMessage,
+  AiOutlineDashboard,
+  AiOutlineBook,
+} from "react-icons/ai";
 import "./SidebarAdmin.scss";
-import logo from "../../assets/img/logo_transparent.png";
+import logo from "../../assets/img/logo_transparent2.png";
 export default class SidebarAdmin extends Component {
   render() {
+    const isActive = (path, match, location) => !!(match || path === location.pathname);
+
     return (
       <div className="sidebar">
         <div className="sidebar__content">
@@ -25,22 +27,42 @@ export default class SidebarAdmin extends Component {
             <div className="sidebar__bottom__content">
               <ul>
                 <li>
-                  <FaTachometerAlt /> Dashboard
+                  <NavLink exact to="/admin/"
+                    activeClassName="selected"
+                    isActive={isActive.bind(this, '/admin/')}
+
+                  >
+                    <AiOutlineDashboard /> Dashboard
+
+                  </NavLink>
                 </li>
 
                 <li>
-                  <NavLink to="/admin/admincourse">
-                    <FaReact /> Courses
+                  <NavLink to="/admin/admincourse"
+                    activeClassName="selected"
+                    isActive={isActive.bind(this, '/admin/admincourse')}
+
+                  >
+                    <AiOutlineBook /> Courses
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/admin/adminuser">
-                    <FaUserCog /> User
+                  <NavLink to="/admin/adminuser"
+                    isActive={isActive.bind(this, '/admin/adminuser')}
+                    activeClassName="selected"
+
+                  >
+                    <AiOutlineUser /> User
                   </NavLink>
                 </li>
                 <li>
-                  <FaEnvelope />
-                  Message
+                  <a href="">
+
+                    <AiOutlineMessage />
+
+                    Message
+
+                    </a>
                 </li>
               </ul>
             </div>

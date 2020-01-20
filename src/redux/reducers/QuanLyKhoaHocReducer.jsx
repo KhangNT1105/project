@@ -13,6 +13,7 @@ export const QuanLyKhoaHocReducer = (state = initialState, action) => {
     }
     case actionType.LAY_DANH_SACH_KHOA_HOC: {
       state.mangDanhSachKhoaHoc = action.mangDanhSachKhoaHoc;
+   
       return { ...state };
     }
     case actionType.TIM_KIEM_KHOA_HOC:

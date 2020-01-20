@@ -10,10 +10,10 @@ export default class HomePopular extends Component {
                     <div className="homePopular__title">
                         <nav>
                             <div className="row">
-                                <div className="col-md-2 left">
+                                <div className="col-xs-12 col-md-4 col-lg-2 left">
                                     <h1>Top Course</h1>
                                 </div>
-                                <div className="col-md-10 right">
+                                <div className="col-xs-12 col-md-8 col-lg-10 right">
                                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                         <a class="nav-item nav-link active" id="nav-all-tab" data-toggle="tab" href="#nav-all" role="tab" aria-controls="nav-all" aria-selected="true">All</a>
                                         <a class="nav-item nav-link" id="nav-frontend-tab" data-toggle="tab" href="#nav-frontend" role="tab" aria-controls="nav-frontend" aria-selected="false">Frontend</a>
@@ -34,7 +34,7 @@ export default class HomePopular extends Component {
                             <div class="tab-pane fade" id="nav-frontend" role="tabpanel" aria-labelledby="nav-frontend-tab"><ListCoursePopular maDanhMuc='FrontEnd' /></div>
                             <div class="tab-pane fade" id="nav-backend" role="tabpanel" aria-labelledby="nav-backend-tab"><ListCoursePopular maDanhMuc='BackEnd' /></div>
                             <div class="tab-pane fade" id="nav-design" role="tabpanel" aria-labelledby="nav-design-tab"><ListCoursePopular maDanhMuc='Design' /></div>
-                            <div class="tab-pane fade" id="nav-mobile" role="tabpanel" aria-labelledby="nav-mobile-tab"><ListCoursePopular maDanhMuc='Mobile' /></div>
+                            <div class="tab-pane fade" id="nav-mobile" role="tabpanel" aria-labelledby="nav-mobile-tab"><ListCoursePopular maDanhMuc='DiDong' /></div>
                             <div class="tab-pane fade" id="nav-fullstack" role="tabpanel" aria-labelledby="nav-fullstack-tab"><ListCoursePopular maDanhMuc='FullStack' /></div>
                             <div class="tab-pane fade" id="nav-tuduy" role="tabpanel" aria-labelledby="nav-tuduy-tab"><ListCoursePopular maDanhMuc='TuDuy' /></div>
 

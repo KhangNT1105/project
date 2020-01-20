@@ -2,6 +2,7 @@ import { actionType } from "../constants/QuanLyNguoiDungConstants";
 import axios from "axios";
 import { settings } from "../../common/config/setting";
 import swal from "sweetalert2";
+import { layDanhSachKhoaHoc } from "./QuanLyKhoaHocAction";
 
 export const dangNhap = thongTinNguoiDung => {
   return dispatch => {
@@ -20,10 +21,12 @@ export const dangNhap = thongTinNguoiDung => {
           text: "Login Sucess",
           timer: 1500
         });
+
         dispatch({
           type: actionType.DANG_NHAP,
           login: true
         });
+
       })
       .catch(err => {
         swal.fire({
@@ -62,6 +65,10 @@ export const dangKy = thongTinNguoiDung => {
 };
 export const layDanhSachNguoiDung = () => {
   return dispatch => {
+    dispatch({
+      type: actionType.SET_LOADING,
+      loading: true,
+    })
     axios({
       url: `http://elearning0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP11`,
       method: "GET"
@@ -76,6 +83,12 @@ export const layDanhSachNguoiDung = () => {
       .catch(err => {
         console.log(err);
       });
+    setTimeout(() => {
+      dispatch({
+        type: actionType.SET_LOADING,
+        loading: false,
+      })
+    }, 1000)
   };
 };
 
@@ -162,7 +175,6 @@ export const dangXuat = () => {
   localStorage.removeItem("accessToken");
   localStorage.removeItem("userLogin");
   return dispatch => {
-    swal.fire("Notice", "Log out success", "success");
     dispatch({
       type: actionType.DANG_XUAT,
       login: false
@@ -268,6 +280,12 @@ export const layThongTinNguoiDung = (taiKhoan, accessToken) => {
           type: actionType.LAY_THONG_TIN_NGUOI_DUNG,
           thongTinNguoiDung: result.data
         });
+        setTimeout(() => {
+          dispatch({
+            type: actionType.LOADING,
+            loading: false,
+          })
+        }, 500)
       })
       .catch(err => {
         dispatch({
@@ -329,6 +347,7 @@ export const huyGhiDanh = (taiKhoan, maKhoaHoc) => {
           })
             .then(result => {
               swal.fire("Deleted!", result.data, "success");
+              dispatch(layThongTinNguoiDung(taiKhoan));
               dispatch(layDanhSachKhoaHocDaGhiDanh(taiKhoan));
               dispatch(layDanhSachKhoaHocChoXetDuyet(taiKhoan));
             })

@@ -5,10 +5,10 @@ import axios from "axios";
 
 export const layDanhMucKhoaHoc = () => {
   return dispatch => {
-    dispatch({
-      type: actionType.SET_LOADING,
-      loading: true
-    });
+    // dispatch({
+    //   type: actionType.SET_LOADING,
+    //   loading: true
+    // });
     axios({
       url: settings.domain + "/quanlykhoahoc/laydanhmuckhoahoc",
       method: "get"
@@ -22,18 +22,20 @@ export const layDanhMucKhoaHoc = () => {
       .catch(err => {
         console.log("err.response.data");
       });
-    dispatch({
-      type: actionType.SET_LOADING,
-      loading: false
-    });
+    // setTimeout(() => {
+    //   dispatch({
+    //     type: actionType.SET_LOADING,
+    //     loading: false
+    //   });
+    // },1000)
   };
 };
 export const layDanhSachKhoaHoc = () => {
   return dispatch => {
-    // dispatch({
-    //   type: actionType.SET_LOADING,
-    //   loading: true
-    // });
+    dispatch({
+      type: actionType.SET_LOADING,
+      loading: true
+    });
     axios({
       url:
         settings.domain +
@@ -47,7 +49,7 @@ export const layDanhSachKhoaHoc = () => {
         });
       })
       .catch(err => {
-        console.log("err.response.data");
+        console.log("err.response.data", err.response);
       });
     setTimeout(() => {
       dispatch({
@@ -64,6 +66,7 @@ export const themKhoaHoc = khoaHoc => {
   return dispatch => {
     //Lấy đối tượng file từ thuộc tính hình ảnh
     let file = khoaHoc.hinhAnh;
+    console.log("khoahoc.hinhanh : ", khoaHoc.hinhAnh);
     khoaHoc.hinhAnh = file.name;
 
     axios({
@@ -86,12 +89,17 @@ export const themKhoaHoc = khoaHoc => {
         let frm = new FormData();
         frm.append("file", file);
         frm.append("tenKhoaHoc", khoaHoc.tenKhoaHoc);
+        console.log("frm", frm.get("file"));
+        console.log("frm", frm.get("tenKhoaHoc"));
+
         axios({
           url: settings.domain + "/QuanLyKhoaHoc/UploadHinhAnhKhoaHoc",
           method: "POST",
           data: frm
         })
           .then(result => {
+            console.log("frm", frm);
+
             console.log(result.data);
           })
           .catch(err => {
@@ -153,8 +161,8 @@ export const xoaKhoaHoc = maKhoaHoc => {
             .catch(err => {
               console.log("err : ", err.response.data);
               swalWithBootstrapButtons.fire(
-                "Opps",
-                "Something went wrongs!!",
+                "Error",
+                err.response.data,
                 "error"
               );
             });
@@ -205,23 +213,18 @@ export const chinhSuaKhoaHoc = khoaHoc => {
             console.log(err.response.data);
           });
         dispatch(layDanhSachKhoaHoc());
+
       })
       .catch(err => {
-        console.log("Loi roi");
+        console.log("Loi roi", err.response.data);
         swal.fire("Opps", err.response.data, "error");
       });
   };
 };
 export const timKiemKhoaHoc = tenKhoaHoc => {
-  if (tenKhoaHoc === '') {
-    return dispatch => {
-      dispatch({
-        type: actionType.TIM_KIEM_KHOA_HOC,
-        mangDanhSachKhoaHoc: []
-      })
-    }
-  }
+  console.log("tenKhoa hoc", tenKhoaHoc);
   return dispatch => {
+
     axios({
       url:
         settings.domain +
@@ -244,12 +247,14 @@ export const timKiemKhoaHoc = tenKhoaHoc => {
       });
   };
 };
-export const layChiTietKhoaHoc = maKhoaHoc => {
+export const layChiTietKhoaHoc = (maKhoaHoc, loading) => {
   return dispatch => {
-    dispatch({
-      type: actionType.SET_LOADING,
-      loading: true,
-    })
+    if (loading) {
+      dispatch({
+        type: actionType.SET_LOADING,
+        loading: true,
+      })
+    }
     axios({
       url:
         settings.domain +
@@ -265,12 +270,14 @@ export const layChiTietKhoaHoc = maKhoaHoc => {
       .catch(err => {
         console.log(err.response.data);
       })
-    setTimeout(() => {
-      dispatch({
-        type: actionType.SET_LOADING,
-        loading: false,
-      })
-    }, 1000)
+    if (loading) {
+      setTimeout(() => {
+        dispatch({
+          type: actionType.SET_LOADING,
+          loading: false,
+        })
+      }, 1000)
+    }
 
   };
 };
@@ -296,7 +303,10 @@ export const layDanhSachKhoaHocTheoMaDanhMuc = maDanhMuc => {
       })
       .catch(err => {
         console.log(err.response.data);
-        dispatch(layDanhSachKhoaHoc())
+        dispatch({
+          type: actionType.LAY_DANH_SACH_KHOA_HOC_THEO_MA_DANH_MUC,
+          danhSachKhoaHoc: [],
+        })
       });
     setTimeout(() => {
       dispatch({

@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+
+.notFound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 500px;
+    .notFound__content {
+        text-align: center;
+        position: absolute;
+        top: 10%;
+
+        h1 {
+            font-family: 'Roboto Mono', monospace;
+            color: rgba($color: #000000, $alpha: 0.4);
+            font-size: 200px;
+        }
+
+        p {
+            color: rgba($color: #000000, $alpha: 0.4);
+            font-size: 50px;
+
+        }
+    }
+
+}

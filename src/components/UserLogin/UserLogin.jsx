@@ -29,7 +29,6 @@ export class UserLogin extends Component {
                 <NavLink
                   to="/"
                   style={{ cursor: "pointer" }}
-                  className="text-dark"
                   onClick={() => {
                     this.props.dangXuat();
                   }}

@@ -1,8 +1,17 @@
 import React, { Component } from 'react'
 import './HomeBlog.scss'
+import data from '../../../data/dataBlog.json'
+import BlogItem from '../../../components/BlogItem/BlogItem'
 
-import BlogItem from './BlogItem/BlogItem'
+import arrImg from '../../../data/blogImg';
 export default class HomeBlog extends Component {
+    renderBlog = () => {
+        return data.map((item, index) => {
+            return <div className="col-md-4">
+                <BlogItem item={item} img={arrImg[index]} />
+            </div>
+        })
+    }
     render() {
         return (
             <div className="homeBlog">
@@ -12,25 +21,8 @@ export default class HomeBlog extends Component {
                     </div>
                     <div className="homeBlog__content">
                         <div className="row">
-                            <div className="col-md-4">
-                                <BlogItem />
-                            </div>
-                            <div className="col-md-4">
-                                <BlogItem />
-                            </div>
-                            <div className="col-md-4">
-                                <BlogItem />
-                            </div>
-                            <div className="col-md-4">
-                                <BlogItem />
-                            </div>
-                            <div className="col-md-4">
-                                <BlogItem />
-                            </div>
-                            <div className="col-md-4">
-                                <BlogItem />
-                            </div>
-                            
+                            {this.renderBlog()}
+
                         </div>
                     </div>
                 </div>

@@ -1,16 +1,39 @@
 .homeFact {
-    background-color: #42a5f5;
-    color: white;
-    padding: 80px 0;
+    background-color: #f6f6f6;
+    color: black;
+    // color: white;
+    padding: 40px 0;
 
     .homeFact__content {
-        display: flex;
-        justify-content: space-between;
+        position: relative;
 
+        // &:before {
+        //     content: '';
+        //     background-image: url('../../../assets/img/btn-bg2.png');
+        //     background-repeat: no-repeat;
+        //     background-size: inherit;
+        //     position: absolute;
+        //     width: 100%;
+        //     height: 200px;
+        //     top: 0;
+        //     left: 0;
+        // }
+
+        // display: flex;
+        // justify-content: space-between;
+        // background: #00c6ff;
+        // /* fallback for old browsers */
+        // background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);
+        // /* Chrome 10-25, Safari 5.1-6 */
+        // background: linear-gradient(to right, #0072ff, #00c6ff);
+        // /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        // padding: 50px 20px ;
+        // border-radius: 30px;
         .homeFact__item {
             display: flex;
             align-items: center;
-
+            justify-content: center;
+            padding: 40px 0;
 
             .icon {
                 margin-right: 20px;

@@ -5,7 +5,8 @@ const initialState = {
   mangDanhSachLoaiNguoiDung: [],
   mangDanhSachKhoaHocChoXetDuyet: [],
   mangDanhSachKhoaHocDaGhiDanh: [],
-  thongTinNguoiDungDaChon: {}
+  thongTinNguoiDungDaChon: {},
+  loading: false,
 };
 
 export const QuanLyNguoiDungReducer = (state = initialState, action) => {
@@ -52,6 +53,12 @@ export const QuanLyNguoiDungReducer = (state = initialState, action) => {
       return { ...state };
     case actionType.LAY_DANH_SACH_LOAI_NGUOI_DUNG:
       state.mangDanhSachLoaiNguoiDung = action.data;
+      return { ...state };
+    case actionType.LOADING:
+      state.loading = action.loading;
+      return { ...state };
+    case actionType.SET_LOADING:
+      state.loading = action.loading;
       return { ...state };
     default:
       return { ...state };

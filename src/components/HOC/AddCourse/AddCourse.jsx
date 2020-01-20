@@ -25,6 +25,7 @@ export function AddCourse(props) {
 
   useEffect(() => {
     props.layDanhMucKhoaHoc();
+   
   }, []);
   useEffect(() => {
     if (props.title === "Add Course") {
@@ -46,18 +47,20 @@ export function AddCourse(props) {
   }, [props.title]);
   useEffect(() => {
     if (props.title === "Update Course") {
-      setstate({
-        course: props.khoaHocDaChon
-      });
+      console.log("zo update course")
+      // setstate({
+      //   course: props.khoaHocDaChon
+      // });
+      if (props.khoaHocDaChon.danhMucKhoaHoc) {
+        setstate({
+          course: {
+            ...props.khoaHocDaChon,
+            maDanhMucKhoaHoc: props.khoaHocDaChon.danhMucKhoaHoc.maDanhMucKhoahoc
+          }
+        });
+      }
     }
-    if (props.khoaHocDaChon.danhMucKhoaHoc) {
-      setstate({
-        course: {
-          ...props.khoaHocDaChon,
-          maDanhMucKhoaHoc: props.khoaHocDaChon.danhMucKhoaHoc.maDanhMucKhoahoc
-        }
-      });
-    }
+
   }, [props.khoaHocDaChon]);
 
   const handleChange = e => {
@@ -71,6 +74,8 @@ export function AddCourse(props) {
         course: { ...state.course, [name]: value }
       });
     }
+    console.log("state", state.course);
+
   };
   const renderDanhMuc = () => {
     return props.mangDanhMucKhoaHoc.map(item => {
@@ -86,10 +91,12 @@ export function AddCourse(props) {
         [name]: e.target.files[0]
       }
     });
+    console.log("state", state.course);
   };
 
   const handleSubmit = e => {
-    console.log(e.target.form);
+    console.log("e.target : ", e.target);
+    console.log("course : ", state.course);
     e.preventDefault();
     if (props.title === "Add Course") {
       props.themKhoaHoc(state.course);
@@ -111,16 +118,19 @@ export function AddCourse(props) {
               value={state.course.maKhoaHoc}
               required
               onChange={handleChange}
+              autoComplete="off"
             />
           ) : (
-            <input
-              type="text"
-              id="maKhoaHoc"
-              name="maKhoaHoc"
-              value={state.course.maKhoaHoc}
-              required
-            />
-          )}
+              <input
+                type="text"
+                id="maKhoaHoc"
+                name="maKhoaHoc"
+                value={state.course.maKhoaHoc}
+                required
+                autoComplete="off"
+
+              />
+            )}
           <label>Course's Code</label>
           <span></span>
         </div>
@@ -131,6 +141,8 @@ export function AddCourse(props) {
             name="tenKhoaHoc"
             value={state.course.tenKhoaHoc}
             required
+            autoComplete="off"
+
             onChange={handleChange}
           />
           <label>Course's Name</label>
@@ -143,6 +155,8 @@ export function AddCourse(props) {
             name="moTa"
             value={state.course.moTa}
             required
+            autoComplete="off"
+
             onChange={handleChange}
           />
           <label>Description</label>
@@ -155,6 +169,8 @@ export function AddCourse(props) {
             name="luotXem"
             value={state.course.luotXem}
             required
+            autoComplete="off"
+
             onChange={handleChange}
           />
           <label>Views</label>
@@ -167,6 +183,7 @@ export function AddCourse(props) {
             name="maDanhMucKhoaHoc"
             value={state.course.maDanhMucKhoaHoc}
             onChange={handleChange}
+
           >
             <option value="">---------------</option>
             {renderDanhMuc()}

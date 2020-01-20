@@ -44,7 +44,7 @@ export class HomeCarousel extends Component {
         this.setState({
             [name]: value,
         })
-        this.props.timKiemKhoaHoc(this.state.tenKhoaHoc);
+        // this.props.timKiemKhoaHoc(this.state.tenKhoaHoc);
     }
     render() {
         return (
@@ -57,7 +57,7 @@ export class HomeCarousel extends Component {
                         <p>We pride ourselves on providing the most up-to-date content for our students to learn each course.</p>
                         <div className="carousel__input">
                             <div className="input-group mb-3">
-                                <input onKeyUp={this.handleChange} onKeyDown={this.handleChange} type="text" className="form-control" name='tenKhoaHoc' value={this.state.tenKhoaHoc} onChange={this.handleChange} placeholder="What do you want to learn ?" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                                <input onKeyUp={this.handleChange} autoComplete="off"  onKeyDown={this.handleChange} type="text" className="form-control" name='tenKhoaHoc' value={this.state.tenKhoaHoc} onChange={this.handleChange} placeholder="What do you want to learn ?" aria-label="Recipient's username" aria-describedby="basic-addon2" />
                                 <div className="input-group-append">
                                     <button className="btn btn-info ">Search</button>
                                 </div>

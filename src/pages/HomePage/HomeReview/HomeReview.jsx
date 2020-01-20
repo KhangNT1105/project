@@ -19,6 +19,23 @@ export default class HomeReview extends Component {
             slidesToScroll: 1,
             autoplay: true,
             arrows: false,
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        infinite: true,
+                    }
+                }, {
+                    breakpoint: 576,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        infinite: true,
+                    }
+                }
+            ]
         };
         return (
             <div className="homeReview">

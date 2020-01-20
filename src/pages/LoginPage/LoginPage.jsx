@@ -1,25 +1,17 @@
 import React, { Component } from 'react'
 import logo from '../../assets/img/logo_transparent2.png'
-import { Redirect } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import { connect } from 'react-redux'
 import './LoginPage.scss'
+import Loader from '../../components/Loader/Loader'
 import { dangNhap, dangKy, layDanhSachNguoiDung } from '../../redux/actions/QuanLyNguoiDungAction';
 export class LoginPage extends Component {
-    //     const signUpButton = document.getElementById('signUp');
-    //     const signInButton = document.getElementById('signIn');
-    //     const container = document.getElementById('container');
 
-    //     signUpButton.addEventListener('click', () => {
-    //         container.classList.add("right-panel-active");
-    //     });
-
-    // signInButton.addEventListener('click', () => {
-    //     container.classList.remove("right-panel-active");
-    // });
     constructor(props) {
         super(props);
         this.state = {
+            loading: true,
             isSignInForm: true,
             accountSignIn: {
                 taiKhoan: "",
@@ -38,13 +30,22 @@ export class LoginPage extends Component {
             }
         }
     }
+    componentWillMount() {
+        setTimeout(() => {
+            this.setState({
+                loading: false
+            })
+        },1000)
+    }
     componentDidMount() {
         this.props.layDanhSachNguoiDung();
     }
     componentWillReceiveProps(nextProps) {
         if (nextProps.login) {
-            console.log("zo redirect")
-            this.props.history.push("/");
+            setTimeout(() => {
+                console.log("zo redirect")
+                this.props.history.push("/");
+            }, 1500)
         }
     }
     swapForm = () => {
@@ -104,7 +105,10 @@ export class LoginPage extends Component {
             }
         })
         this.props.dangKy(this.state.accountSignUp);
-        this.props.dangNhap({ taiKhoan: this.state.taiKhoan, matKhau: "1" })
+        setTimeout(() => {
+            this.props.dangNhap({ taiKhoan: this.state.taiKhoan, matKhau: "1" })
+
+        }, 1000);
 
     }
     render() {
@@ -113,85 +117,99 @@ export class LoginPage extends Component {
         this.state.isSignInForm ? className = "container " : className = "container right-panel-active"
         let { accountSignUp, accountSignIn } = this.state;
         return (
-            <div className="loginPage">
-                {/* {this.state.isSignInForm ? this.signInForm() : this.signUpForm()} */}
-                <div className={className} id="container">
-                    <div className="form-container sign-up-container">
-                        <form onSubmit={this.handleSubmit}>
-                            <h1>Create Account</h1>
-                            <div className="social-container">
-                                <FacebookLogin
-                                    appId="422187921999448"
-                                    autoLoad={false}
-                                    fields="name,email,picture"
-                                    onClick={this.componentClicked}
-                                    callback={this.responseFacebook}
-                                    render={(renderProps) => (
-                                        <a style={{ cursor: 'pointer' }} onClick={renderProps.onClick} className="social"><i className="fab fa-facebook-f" /></a>
-                                    )}
-                                />
-                                {/* <a href="#" className="social"><i className="fab fa-google-plus-g" /></a> */}
-                                {/* <a href="#" className="social"><i className="fab fa-linkedin-in" /></a> */}
-                            </div>
-                            <span>or use your email for registration</span>
-                            <input type="text" name="taiKhoan" value={accountSignUp.taiKhoan} placeholder="Username" onChange={this.handleChange} />
-                            <input type="password" name="matKhau" value={accountSignUp.matKhau} placeholder="Password" onChange={this.handleChange} />
-                            <input type="text" name="hoTen" value={accountSignUp.hoTen} placeholder="Fullname" onChange={this.handleChange} />
-                            <input type="email" name="email" value={accountSignUp.email} placeholder="Email" onChange={this.handleChange} />
-                            <button onClick={() => {
-                                // document.getElementById('container').classList.add("right-panel-active")
-                            }}>Sign Up</button>
-                        </form>
-                    </div>
-                    <div className="form-container sign-in-container">
-                        <form onSubmit={this.handleSubmit}>
-                            <h1>Sign in</h1>
-                            <div className="social-container">
-                                <FacebookLogin
-                                    appId="422187921999448"
-                                    autoLoad={true}
-                                    fields="name,email,picture"
-                                    onClick={this.componentClicked}
-                                    callback={this.responseFacebook}
-                                    render={(renderProps) => {
-                                        return <a style={{ cursor: 'pointer' }} onClick={renderProps.onClick} className="social"><i className="fab fa-facebook-f" /></a>
-                                    }}
-                                />
-                                {/* <a href="#" className="social"><i className="fab fa-google-plus-g" /></a> */}
-                                {/* <a href="#" className="social"><i className="fab fa-linkedin-in" /></a> */}
-                            </div>
-                            <span>or use your account</span>
-                            <input type="text" name="taiKhoan" value={accountSignIn.taiKhoan} placeholder="Username" onChange={this.handleChange} />
-                            <input type="password" name="matKhau" value={accountSignIn.matKhau} placeholder="Password" onChange={this.handleChange} />
-                            <a href="#">Forgot your password?</a>
-                            <button onClick={() => {
-                                document.getElementById('container').classList.remove("right-panel-active");
+            <>
+                {
+                    this.state.loading ? <Loader /> : <div className="loginPage">
+                        <div className="loginPage__logo">
+                            <NavLink to="/">
 
-                            }}>Sign In</button>
-                        </form>
-                    </div>
+                                <img src={logo} width="100px" height="100px" alt="" />
 
-                    <div className="overlay-container">
-                        <div className="overlay">
-                            <div className="overlay-panel overlay-left">
-                                <h1>Welcome Back!</h1>
-                                <p>To keep connected with us please login with your personal info</p>
-                                <button className="ghost" onClick={() => {
-                                    this.swapForm()
-                                }} id="signIn">Sign In</button>
+                            </NavLink>
+
+                        </div>
+                        {/* {this.state.isSignInForm ? this.signInForm() : this.signUpForm()} */}
+                        <div className={className} id="container">
+                            <div className="form-container sign-up-container">
+                                <form onSubmit={this.handleSubmit}>
+                                    <h1>Create Account</h1>
+                                    <div className="social-container">
+                                        <FacebookLogin
+                                            appId="422187921999448"
+                                            autoLoad={false}
+                                            fields="name,email,picture"
+                                            onClick={this.componentClicked}
+                                            callback={this.responseFacebook}
+                                            render={(renderProps) => (
+                                                <a style={{ cursor: 'pointer' }} onClick={renderProps.onClick} className="social"><i className="fab fa-facebook-f" /></a>
+                                            )}
+                                        />
+                                        {/* <a href="#" className="social"><i className="fab fa-google-plus-g" /></a> */}
+                                        {/* <a href="#" className="social"><i className="fab fa-linkedin-in" /></a> */}
+                                    </div>
+                                    <span>or use your email for registration</span>
+                                    <input type="text" name="taiKhoan" value={accountSignUp.taiKhoan} placeholder="Username" onChange={this.handleChange} />
+                                    <input type="password" name="matKhau" value={accountSignUp.matKhau} placeholder="Password" onChange={this.handleChange} />
+                                    <input type="text" name="hoTen" value={accountSignUp.hoTen} placeholder="Fullname" onChange={this.handleChange} />
+                                    <input type="email" name="email" value={accountSignUp.email} placeholder="Email" onChange={this.handleChange} />
+                                    <button onClick={() => {
+                                        // document.getElementById('container').classList.add("right-panel-active")
+                                    }}>Sign Up</button>
+                                </form>
                             </div>
-                            <div className="overlay-panel overlay-right">
-                                <h1>Hello, Friend!</h1>
-                                <p>Enter your personal details and start journey with us</p>
-                                <button onClick={() => {
-                                    this.swapForm()
+                            <div className="form-container sign-in-container">
+                                <form onSubmit={this.handleSubmit}>
+                                    <h1>Sign in</h1>
+                                    <div className="social-container">
+                                        <FacebookLogin
+                                            appId="422187921999448"
+                                            autoLoad={true}
+                                            fields="name,email,picture"
+                                            onClick={this.componentClicked}
+                                            callback={this.responseFacebook}
+                                            render={(renderProps) => {
+                                                return <a style={{ cursor: 'pointer' }} onClick={renderProps.onClick} className="social"><i className="fab fa-facebook-f" /></a>
+                                            }}
+                                        />
+                                        {/* <a href="#" className="social"><i className="fab fa-google-plus-g" /></a> */}
+                                        {/* <a href="#" className="social"><i className="fab fa-linkedin-in" /></a> */}
+                                    </div>
+                                    <span>or use your account</span>
+                                    <input type="text" name="taiKhoan" value={accountSignIn.taiKhoan} placeholder="Username" onChange={this.handleChange} />
+                                    <input type="password" name="matKhau" value={accountSignIn.matKhau} placeholder="Password" onChange={this.handleChange} />
+                                    <a href="#">Forgot your password?</a>
+                                    <button onClick={() => {
+                                        document.getElementById('container').classList.remove("right-panel-active");
 
-                                }} className="ghost" id="signUp">Sign Up</button>
+                                    }}>Sign In</button>
+                                </form>
+                            </div>
+
+                            <div className="overlay-container">
+                                <div className="overlay">
+                                    <div className="overlay-panel overlay-left">
+                                        <h1>Hello, Friend!</h1>
+                                        <p>Enter your personal details and start journey with us</p>
+
+                                        <button className="ghost" onClick={() => {
+                                            this.swapForm()
+                                        }} id="signIn">Sign In</button>
+                                    </div>
+                                    <div className="overlay-panel overlay-right">
+                                        <h1>Welcome Back!</h1>
+                                        <p>To keep connected with us please login with your personal info</p>
+
+                                        <button onClick={() => {
+                                            this.swapForm()
+
+                                        }} className="ghost" id="signUp">Sign Up</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                }
+            </>
 
         )
     }

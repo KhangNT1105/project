@@ -11,6 +11,10 @@ import { connect } from "react-redux";
 import UserEnroll from "../../../components/HOC/UserEnroll/UserEnroll";
 import WithModal from "../../../components/HOC/WithModal/WithModal";
 import AddUser from "../../../components/HOC/AddUser/AddUser";
+import { FiEdit, FiTrash2 } from "react-icons/fi";
+import { AiOutlineDatabase } from 'react-icons/ai'
+import LoadingComponent from '../../../components/LoadingComponent/LoadingComponent'
+import NotFound from "../../../components/NotFound/NotFound";
 const EnrollModal = WithModal(UserEnroll);
 const UserModal = WithModal(AddUser);
 export class AdminUser extends Component {
@@ -29,12 +33,15 @@ export class AdminUser extends Component {
     this.setState({
       tenNguoiDung: value
     });
-    if (value === "") {
+
+  };
+  searchUserByUsername = (username) => {
+    if (username === "") {
       this.props.layDanhSachNguoiDung();
     } else {
-      this.props.timKiemNguoiDung(this.state.tenNguoiDung);
+      this.props.timKiemNguoiDung(username);
     }
-  };
+  }
   modalAdd = () => {
     this.setState({
       title: "Add User"
@@ -63,28 +70,28 @@ export class AdminUser extends Component {
           <td>{item.soDt}</td>
           <td className="text-center">
             <button
-              className="btn btn-primary"
+              className="btn btn-info mr-2"
               data-toggle="modal"
               data-target="#modelEnroll"
               onClick={() => {
                 this.modalEnroll(item.taiKhoan);
               }}
             >
-              Enroll
+              <AiOutlineDatabase />
             </button>
             <button
-              className="btn btn-success"
+              className="btn btn-primary mr-2"
               data-toggle="modal"
               data-target="#modelUser"
               onClick={() => {
                 this.modalUpdate(item.taiKhoan);
               }}
             >
-              Update
+              <FiEdit />
             </button>
             <button className="btn btn-danger" onClick={() => {
               this.props.xoaNguoiDung(item.taiKhoan)
-            }}>Delete</button>
+            }}><FiTrash2 /></button>
           </td>
         </tr>
       );
@@ -96,23 +103,44 @@ export class AdminUser extends Component {
     return (
       <div className="adminUser">
         <div className="row adminUser__content">
+          <div className="col-md-12 adminUser__search">
+            {/* <div className="search input-group">
+              <input
+                type="text"
+                placeholder="Search User"
+                value={this.state.tenNguoiDung}
+                onKeyUp={this.handleChange}
+                onChange={this.handleChange}
+                onKeyDown={this.handleChange}
+                className="adminCourse__search form-control"
+              />
+              <div className="input-group-append">
+                <button className="input-group-text" id="basic-addon2">@example.com</button>
+              </div>
+
+            </div> */}
+            <div className="input-group  mb-3">
+              <input type="text" placeholder="Search User"
+                value={this.state.tenNguoiDung}
+                onKeyUp={this.handleChange}
+                onChange={this.handleChange}
+                onKeyDown={this.handleChange}
+                className="adminCourse__search form-control" />
+              <div className="input-group-append">
+                <button className=" btn btn-info" id="basic-addon2" onClick={() => {
+                  this.searchUserByUsername(this.state.tenNguoiDung)
+                }}>Search</button>
+              </div>
+            </div>
+
+          </div>
           <div className="col-md-12">
-            <div className="adminUser__title text-center pb-5">
-              <h1>User</h1>
+            <div className="adminUser__title text-center pb-3">
+              <h1>List Users</h1>
             </div>
           </div>
-          <div className="col-md-4 adminUser__search">
-            <input
-              type="text"
-              placeholder="Search User"
-              value={this.state.tenNguoiDung}
-              onKeyUp={this.handleChange}
-              onChange={this.handleChange}
-              onKeyDown={this.handleChange}
-              className="adminCourse__search"
-            />
-          </div>
-          <div className="col-md-8">
+
+          <div className="col-md-12">
             <div className="adminUser__addUser">
               <button
                 className="btn btn-success btn-lg "
@@ -126,23 +154,33 @@ export class AdminUser extends Component {
               </button>
             </div>
           </div>
-          <div className="col-md-12 mt-5 adminUser__table">
-            <table class="table__user table table-dark table-striped ">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">User Name</th>
-                  <th scope="col">FullName</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Phone Number</th>
-                  <th className="text-center" scope="col">
-                    <IoMdSettings />
-                  </th>
-                </tr>
-              </thead>
-              <tbody>{this.renderTable()}</tbody>
-            </table>
-          </div>
+          {this.props.loading ? <div className="col-md-12">
+            <LoadingComponent />
+          </div> :
+            this.props.mangDanhSachNguoiDung.length === 0 ?
+              <div className="col-md-12">
+                <NotFound />
+              </div> :
+              <div className="col-md-12 mt-5 adminUser__table">
+                <div className="adminUser__table--content">
+                  <table class="table__user table  table-striped ">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">User Name</th>
+                        <th scope="col">FullName</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone Number</th>
+                        <th className="text-center" scope="col">
+                          <IoMdSettings />
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>{this.renderTable()}</tbody>
+                  </table>
+                </div>
+              </div>
+          }
         </div>
         <EnrollModal title="Enroll" modalId="modelEnroll" />
         <UserModal title={this.state.title} modalId="modelUser" />
@@ -170,7 +208,8 @@ const mapStateToProps = state => {
   return {
     mangDanhSachNguoiDung: state.QuanLyNguoiDungReducer.mangDanhSachNguoiDung,
     thongTinNguoiDungDachon:
-      state.QuanLyNguoiDungReducer.thongTinNguoiDungDachon
+      state.QuanLyNguoiDungReducer.thongTinNguoiDungDachon,
+    loading: state.QuanLyNguoiDungReducer.loading,
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(AdminUser);

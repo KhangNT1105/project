@@ -10,13 +10,29 @@ import HomeUniv from './HomeUniv/HomeUniv';
 import HomeTeacher from './HomeTeacher/HomeTeacher';
 import { connect } from 'react-redux'
 import { setLoading } from '../../redux/actions/QuanLyKhoaHocAction';
-import LoadingComponent from '../../components/LoadingComponent/LoadingComponent';
+import Loader from '../../components/Loader/Loader'
 import HomeFact from './HomeFact/HomeFact';
 import HomeReview from './HomeReview/HomeReview';
 import HomeBlog from './HomeBlog/HomeBlog';
 // import HomeCourseDiscovery from './HomeCourseDiscovery/HomeCourseDiscovery';
 
 export class HomePage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: true,
+        }
+    }
+    componentWillMount() {
+
+    }
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({
+                loading: false,
+            })
+        }, 1000);
+    }
     componentWillUnmount() {
         window.scrollTo(0, 0);
     }
@@ -24,7 +40,7 @@ export class HomePage extends Component {
     render() {
         return (
             <Fragment>
-                {this.props.loading ? <LoadingComponent /> :
+                {this.state.loading ? <Loader /> :
                     <>
                         <HomeCarousel />
                         <HomeAbout />

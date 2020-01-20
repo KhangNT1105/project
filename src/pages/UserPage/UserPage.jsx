@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import UserSidebar from "./UserSidebar/UserSidebar";
 import OverlayHeader from "../../components/HOC/OverlayHeader/OverlayHeader";
-import OverlayUser from "../../components/HOC/UserOverlay/UserOverlay";
+import OverlayUser from '../../components/HOC/UserOverlay/UserOverlay'
 import UserContent from "./UserContent/UserContent";
 import { layThongTinNguoiDung } from "../../redux/actions/QuanLyNguoiDungAction";
 const UserOverlay = OverlayHeader(OverlayUser);
-export  class UserPage extends Component {
+export class UserPage extends Component {
   componentWillUnmount() {
     window.scrollTo(0, 0);
   }
@@ -20,10 +20,10 @@ export  class UserPage extends Component {
         <UserOverlay />
         <div className="container py-5">
           <div className="row">
-            <div className="col-md-4">
-              <UserSidebar />
+            <div className="col-md-3">
+              <UserSidebar pathname={this.props.location.pathname} />
             </div>
-            <div className="col-md-8">
+            <div className="col-md-9">
               <UserContent />
             </div>
           </div>

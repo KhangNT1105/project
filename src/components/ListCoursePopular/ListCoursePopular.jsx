@@ -3,35 +3,56 @@ import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { layDanhSachKhoaHoc } from "../../redux/actions/QuanLyKhoaHocAction";
 import CoursePopular from "../CoursePopular/CoursePopular";
+import NotFound from "../NotFound/NotFound";
 export class ListCoursePopular extends Component {
   componentDidMount() {
     this.props.layDanhSachKhoaHoc();
   }
+  arr = [];
 
   renderCourse = maDanhMuc => {
-    let arr = [];
-    if (maDanhMuc === "") {
-      arr = this.props.mangDanhSachKhoaHoc;
-    } else {
-      arr = this.props.mangDanhSachKhoaHoc.filter(item => {
+    this.arr = [...this.props.mangDanhSachKhoaHoc];
+    if (maDanhMuc !== "") {
+      this.arr = this.arr.filter(item => {
         return item.danhMucKhoaHoc.maDanhMucKhoahoc === maDanhMuc;
       });
     }
-
-    return arr.map((item, index) => {
-      return (
-        <div className="col-md-3" key={index}>
-          <NavLink to={`/coursedetail/${item.maKhoaHoc}`}>
-            <CoursePopular item={item} />
-          </NavLink>
-        </div>
-      );
-    });
+    console.log(maDanhMuc, this.arr);
+    if (this.arr.length !== 0) {
+      this.arr.sort((a, b) => {
+        if (a.luotXem > b.luotXem) {
+          return -1;
+        }
+        if (a.luotXem < b.luotXem) {
+          return 1;
+        }
+        return 0;
+      })
+      if (this.arr.length > 8) {
+        this.arr.splice(8, this.arr.length - 8);
+      }
+      return this.arr.map((item, index) => {
+        return (
+          <div className="col-xl-3 col-lg-4" key={index}>
+            <NavLink to={`/coursedetail/${item.maKhoaHoc}`}>
+              <CoursePopular item={item} />
+            </NavLink>
+          </div>
+        );
+      });
+    }
+    return <NotFound />;
   };
   render() {
+    console.log(this.props.mangDanhSachKhoaHoc);
+
     return (
       <div className="ListCoursePopular">
-        <div className="row">{this.renderCourse(this.props.maDanhMuc)}</div>
+        <div className="row">
+          {this.arr.length === 0 ?
+            <div className="col-md-12">{this.renderCourse(this.props.maDanhMuc)}</div>
+            : this.renderCourse(this.props.maDanhMuc)}
+        </div>
       </div>
     );
   }

@@ -21,15 +21,18 @@ export class ListCourseFilter extends Component {
     if (this.props.maDanhMuc !== "") {
       this.props.layDanhSachKhoaHocTheoMaDanhMuc(this.props.maDanhMuc);
     }
+    console.log("this.props.filter", this.props.maDanhMuc);
   }
   componentDidUpdate(prevProps) {
+    console.log("this.props.filter", this.props.maDanhMuc);
     if (prevProps.maDanhMuc !== this.props.maDanhMuc) {
-      this.props.layDanhSachKhoaHocTheoMaDanhMuc(this.props.maDanhMuc);
+      if (this.props.maDanhMuc === undefined) {
+        this.props.layDanhSachKhoaHoc();
+      } else {
+        this.props.layDanhSachKhoaHocTheoMaDanhMuc(this.props.maDanhMuc);
+      }
     }
   }
-  // componentWillReceiveProps(nextProps) {
-  //         this.props.layDanhSachKhoaHocTheoMaDanhMuc(nextProps.maDanhMuc);
-  // }
   renderCategories = () => {
     return this.props.mangDanhMucKhoaHoc.map(item => {
       return <option value={item.maDanhMuc}>{item.maDanhMuc}</option>;
@@ -48,16 +51,18 @@ export class ListCourseFilter extends Component {
         this.props.layDanhSachKhoaHoc();
       }
     }
-    if (name === "tenKhoaHoc") {
-      if (value !== '') {
-        this.props.timKiemKhoaHoc(value);
-      }
-      else {
-        this.props.layDanhSachKhoaHoc();
-      }
-    }
+    // if (name === "tenKhoaHoc") {
+    //   if (value !== '') {
+    //     this.props.timKiemKhoaHoc(value);
+    //   }
+    //   else {
+    //     this.props.layDanhSachKhoaHoc();
+    //   }
+    // }
   };
+  searchCourse = (tenKhoaHoc) => {
 
+  }
   render() {
     console.log("propsaasd", this.props.maDanhMuc);
 
@@ -106,9 +111,11 @@ export class ListCourseFilter extends Component {
                     aria-describedby="basic-addon2"
                   />
                   <div className="input-group-append">
-                    <span className="input-group-text" id="basic-addon2">
+                    <button className="input-group-text btn btn-info" onClick={() => {
+                      this.props.timKiemKhoaHoc(this.state.tenKhoaHoc)
+                    }} id="basic-addon2">
                       <FiSearch />
-                    </span>
+                    </button>
                   </div>
                 </div>
               </div>

@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import "./UserEnroll.scss";
 import { connect } from "react-redux";
 import { IoMdSettings } from "react-icons/io";
+import { AiOutlineCheck, AiOutlineClose } from 'react-icons/ai'
+
 import {
   layDanhSachKhoaHocDaGhiDanh,
   xacThucGhiDanh,
@@ -25,7 +27,7 @@ function UserEnroll(props) {
             <td>
               {!isRegistered ? (
                 <button
-                  className="btn btn-success"
+                  className="btn btn-success mr-2"
                   onClick={() => {
                     props.xacThucGhiDanh(
                       props.thongTinNguoiDungDaChon.taiKhoan,
@@ -33,11 +35,11 @@ function UserEnroll(props) {
                     );
                   }}
                 >
-                  Accept
+                  <span><AiOutlineCheck /></span>
                 </button>
               ) : (
-                <></>
-              )}
+                  <></>
+                )}
               <button
                 className="btn btn-danger"
                 onClick={() => {
@@ -47,7 +49,7 @@ function UserEnroll(props) {
                   );
                 }}
               >
-                Decline
+                <AiOutlineClose />
               </button>
             </td>
           </tr>

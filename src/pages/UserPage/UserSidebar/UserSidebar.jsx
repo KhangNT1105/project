@@ -2,12 +2,21 @@ import React, { Component } from "react";
 import { FaCertificate, FaRegEnvelope, FaBuffer } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import "./UserSidebar.scss";
+import { IoIosArrowRoundBack } from 'react-icons/io'
 import avt from "../../../assets/img/avt.png";
 export default class UserSidebar extends Component {
   taiKhoan = JSON.parse(localStorage.getItem("userLogin"));
+  // componentWillMount() {
+  //   console.log("this.props", this.props.location)
+  // }
   render() {
     return (
       <div className="userSidebar">
+        {this.props.pathname === "/user" ? <></> :
+          <div className="userSidebar__return">
+            <NavLink to="/user"><IoIosArrowRoundBack /> Back to list courses</NavLink>
+          </div>
+        }
         <div className="userSidebar__img">
           <img src={avt} alt="" />
         </div>

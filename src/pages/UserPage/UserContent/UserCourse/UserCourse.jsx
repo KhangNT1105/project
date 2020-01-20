@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { layThongTinNguoiDung } from "../../../../redux/actions/QuanLyNguoiDungAction";
-import { timKiemKhoaHoc } from '../../../../redux/actions/QuanLyKhoaHocAction'
+import './UserCourse.scss'
+import { layThongTinNguoiDung, layDanhSachKhoaHocDaGhiDanh, huyGhiDanh } from "../../../../redux/actions/QuanLyNguoiDungAction";
+import { timKiemKhoaHoc, layDanhSachKhoaHoc } from '../../../../redux/actions/QuanLyKhoaHocAction'
+import CoursePopular from "../../../../components/CoursePopular/CoursePopular";
+import LoadingComponent from "../../../../components/LoadingComponent/LoadingComponent";
+import NotFound from '../../../../components/NotFound/NotFound'
+import Button from "../../../../components/Button/Button";
 export class UserCourse extends Component {
 
   constructor(props) {
@@ -12,30 +17,71 @@ export class UserCourse extends Component {
   }
   componentDidMount() {
     let taiKhoan = JSON.parse(localStorage.getItem("userLogin")).taiKhoan;
-    this.props.layThongTinNguoiDung(taiKhoan);
+    // this.props.layThongTinNguoiDung(taiKhoan);
+    // this.props.layDanhSachKhoaHoc();
+    // this.props.layDanhSachKhoaHocDaGhiDanh(taiKhoan);
+    console.log("ghi danh", this.props.thongTinNguoiDungDaChon);
   }
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      dsKhoaHocGhiDanh: nextProps.thongTinNguoiDungDaChon.chiTietKhoaHocGhiDanh,
-    })
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   if (this.props.thongTinNguoiDungDaChon.chiTietKhoaHocGhiDanh !== nextProps.thongTinNguoiDungDaChon.chiTietKhoaHocGhiDanh) {
+  //     this.setState({
+  //       dsKhoaHocGhiDanh: nextProps.thongTinNguoiDungDaChon.chiTietKhoaHocGhiDanh,
+  //     })
+  //   }
+
+  // }
+
   renderCourses = () => {
-    // if (this.props.danhSach) {
-    //   return this.props.danhSach.map(item => {
-    //   })
+    let userCourse = [];
+    let { chiTietKhoaHocGhiDanh } = this.props.thongTinNguoiDungDaChon;
+    console.log(this.props.mangDanhSachKhoaHoc);
+    if (chiTietKhoaHocGhiDanh) {
+      for (let i = 0; i < chiTietKhoaHocGhiDanh.length; i++) {
+        userCourse.push(this.props.mangDanhSachKhoaHoc.find(item => item.maKhoaHoc === chiTietKhoaHocGhiDanh[i].maKhoaHoc));
+      }
+      console.log("usercourse", userCourse);
+
+      return userCourse.map((item) => {
+        return <div className="col-md-4 userCourse__item">
+          {/* <div className="coursePopular"> */}
+          <CoursePopular item={item} />
+          {/* <div className="userCourse__button"> */}
+          <a onClick={() => this.props.huyGhiDanh(this.props.thongTinNguoiDungDaChon.taiKhoan, item.maKhoaHoc)} className="courseOverlay">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Unenroll
+          </a>
+          {/* </div> */}
+          {/* </div> */}
+
+        </div>
+      })
+
+    }
+
+    // if (!this.state.dsKhoaHocGhiDanh) {
+    //   console.log("zo day")
+    //   for (let i = 0; i < this.state.dsKhoaHocGhiDanh.length; i++) {
+
+    //     userCourse.push(this.props.mangDanhSachKhoaHoc.find(item => item.maKhoaHoc === this.state.dsKhoaHocGhiDanh[i].maKhoaHoc));
+    //   }
     // }
   }
   render() {
-    console.log("state", this.state);
-    return <div className="userCourse">
-      <div className="title">
-        <h4>My Courses</h4>
+    console.log("state", this.state.dsKhoaHocGhiDanh);
+
+    return (
+      <div className="userCourse">
+        <div className="row">
+          {/* {this.props.loading ? <div className="col-md-12">
+            <LoadingComponent />
+          </div> : this.renderCourses()} */}
+          {this.renderCourses()}
+        </div>
       </div>
-      <div className="row">
-        {this.renderCourses()}
-        asd
-    </div>;
-    </div>
+    )
   }
 }
 
@@ -43,15 +89,24 @@ const mapStateToProps = (state) => {
   return {
     thongTinNguoiDungDaChon: state.QuanLyNguoiDungReducer.thongTinNguoiDungDaChon,
     mangDanhSachKhoaHoc: state.QuanLyKhoaHocReducer.mangDanhSachKhoaHoc,
+    loading: state.QuanLyNguoiDungReducer.loading,
+    mangDanhSachKhoaHocDaGhiDanh: state.QuanLyNguoiDungReducer.mangDanhSachKhoaHocDaGhiDanh
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
+    layDanhSachKhoaHoc: () => {
+      dispatch(layDanhSachKhoaHoc());
+    }
+    ,
     layThongTinNguoiDung: (taiKhoan) => {
       dispatch(layThongTinNguoiDung(taiKhoan))
     },
     timKiemKhoaHoc: (tenKhoaHoc) => {
       dispatch(timKiemKhoaHoc(tenKhoaHoc))
+    },
+    huyGhiDanh: (taiKhoan, maKhoaHoc) => {
+      dispatch(huyGhiDanh(taiKhoan, maKhoaHoc))
     }
   };
 };

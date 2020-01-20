@@ -16,11 +16,11 @@ export default class HomeTeacher extends Component {
             <h1>Popular Instructors </h1>
           </div>
           <div className="row homeTeacher__content">
-            <div className="col-md-3 item item1">
+            <div className=" col-md-6 col-lg-3 item item1">
               <Tilt className="Tilt" options={{ max: 15 }}>
                 <div className="Titl-inner homeTeacher__card">
                   <div className="img-box">
-                    <img src={t1} alt="" />
+                    <img src={t1} height="100%" alt="" />
                   </div>
                   <div className="content">
                     <h3>
@@ -52,11 +52,11 @@ export default class HomeTeacher extends Component {
                 </div>
               </Tilt>
             </div>
-            <div className="col-md-3 item item2">
+            <div className="col-md-6 col-lg-3 item item2">
               <Tilt className="Tilt" options={{ max: 15 }}>
                 <div className="homeTeacher__card">
                   <div className="img-box">
-                    <img src={t2} alt="" />
+                    <img src={t2} height="100%" alt="" />
                   </div>
                   <div className="content">
                     <h3>
@@ -89,11 +89,11 @@ export default class HomeTeacher extends Component {
                 </div>
               </Tilt>
             </div>
-            <div className="col-md-3 item item3">
+            <div className="col-md-6 col-lg-3 item item3">
               <Tilt className="Tilt" options={{ max: 15 }}>
                 <div className="homeTeacher__card">
                   <div className="img-box">
-                    <img src={t3} alt="" />
+                    <img src={t3} height="100%" alt="" />
                   </div>
                   <div className="content">
                     <h3>
@@ -127,11 +127,11 @@ export default class HomeTeacher extends Component {
                 </div>
               </Tilt>
             </div>
-            <div className="col-md-3 item item4">
+            <div className="col-md-6 col-lg-3 item item4">
               <Tilt className="Tilt" options={{ max: 15 }}>
                 <div className="homeTeacher__card">
                   <div className="img-box">
-                    <img src={t4} alt="" />
+                    <img src={t4} height="100%" alt="" />
                   </div>
                   <div className="content">
                     <h3>

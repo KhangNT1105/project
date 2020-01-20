@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { IoIosNotificationsOutline } from "react-icons/io";
+import { IoMdNotificationsOutline } from "react-icons/io";
 import "./HeaderAdmin.scss";
 import UserLogin from "../UserLogin/UserLogin";
 import LoginAndSignUp from "../LoginAndSignUp/LoginAndSignUp";
@@ -16,7 +16,7 @@ export default class HeaderAdmin extends Component {
         <div className="container-fluid">
           <div className="headerAdmin__content ">
             <div className="headerAdmin__notify">
-              <IoIosNotificationsOutline />
+              <IoMdNotificationsOutline />
               <span className="available">1</span>
             </div>
             {this.state.userLogin ? (

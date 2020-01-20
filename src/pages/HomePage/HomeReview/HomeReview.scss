@@ -42,7 +42,8 @@
 
                     .review-box {
                         position: relative;
-
+                        max-height:120px ;
+                        overflow: hidden;
                         &::before {
                             content: '';
                             position: absolute;

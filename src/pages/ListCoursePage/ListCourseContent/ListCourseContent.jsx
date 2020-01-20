@@ -9,6 +9,7 @@ import { layDanhSachKhoaHoc } from "../../../redux/actions/QuanLyKhoaHocAction";
 import CoursePopular from "../../../components/CoursePopular/CoursePopular";
 import Pagination from "../../../components/Pagination/Pagination";
 import CourseList2 from "../../../components/CourseList2/CourseList2";
+import NotFound from "../../../components/NotFound/NotFound";
 export class ListCourseContent extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +18,13 @@ export class ListCourseContent extends Component {
       currentPage: 1,
       itemPerPage: 8
     };
+  }
+  componentDidUpdate(prevProps) {
+    if (this.props.mangDanhSachKhoaHoc !== prevProps.mangDanhSachKhoaHoc) {
+      this.setState({
+        currentPage: 1,
+      })
+    }
   }
   renderListCourseGrid = () => {
     const indexOfLastCourse = this.state.currentPage * this.state.itemPerPage;
@@ -27,7 +35,7 @@ export class ListCourseContent extends Component {
     );
     return currentPages.map(item => {
       return (
-        <div className="col-md-3">
+        <div className="col-12 col-sm-6 col-md-4 col-lg-3">
           <NavLink to={`/coursedetail/${item.maKhoaHoc}`}>
             <CoursePopular item={item} />
           </NavLink>
@@ -76,6 +84,7 @@ export class ListCourseContent extends Component {
     this.setState({
       currentPage: number
     });
+    window.scrollTo(0, 450);
   };
 
   componentDidMount() {
@@ -109,21 +118,22 @@ export class ListCourseContent extends Component {
                   </div>
                 </div>
               </div>
-              <div className="listCourseContent">
-                <div className="row">
-                  {this.state.isGrid
-                    ? this.renderListCourseGrid()
-                    : this.renderListCourseList()}
-                  <div className="col-md-12 text-center">
-                    <Pagination
-                      totalCourse={this.props.mangDanhSachKhoaHoc.length}
-                      coursePerPage={this.state.itemPerPage}
-                      currentPage={this.state.currentPage}
-                      changeCurrentPage={this.changeCurrentPage}
-                    />
+              {this.props.mangDanhSachKhoaHoc.length === 0 ? <NotFound /> :
+                <div className="listCourseContent">
+                  <div className="row">
+                    {this.state.isGrid
+                      ? this.renderListCourseGrid()
+                      : this.renderListCourseList()}
+                    <div className="col-md-12 text-center">
+                      <Pagination
+                        totalCourse={this.props.mangDanhSachKhoaHoc.length}
+                        coursePerPage={this.state.itemPerPage}
+                        currentPage={this.state.currentPage}
+                        changeCurrentPage={this.changeCurrentPage}
+                      />
+                    </div>
                   </div>
-                </div>
-              </div>
+                </div>}
             </div>
           </div>
         }

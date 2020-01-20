@@ -2,20 +2,20 @@
 
 
     .container-fluid {
-        padding-left: 250px;
+        padding-left: 200px;
         overflow-x: hidden;
-        background: url('https://demo.flatlogic.com/light-blue-react/static/media/bg-pattern.490ec710.svg'), radial-gradient(farthest-side ellipse at 10% 0, #36455a 20%, #889caf);
+        background-color: #fff;
         background-attachment: fixed;
         background-size: cover;
         background-repeat: no-repeat;
-
+        padding-right: 0;
         .adminPage__content {
             padding-top: 116px;
             min-height: 100vh;
             padding-right: 15px;
             padding-left: 15px;
+            background-color: rgba(0,0,0,.05);;
 
-          
         }
     }
 }

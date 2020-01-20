@@ -10,12 +10,13 @@ import {
 import CourseSub from "../../../components/CourseSub/CourseSub";
 export class CourseDetailRight extends Component {
   componentDidMount() {
-    this.props.layDanhSachKhoaHoc();
   }
   renderCourseSub = () => {
     let arr = [...this.props.mangDanhSachKhoaHoc];
     console.log("length", arr.length);
-    let _arr = arr.splice(1, 3);
+    let _arr = [...Array(3)].map(() => {
+      return arr.splice(Math.floor(Math.random() * arr.length), 1)[0]
+    })
     return _arr.map(item => {
       return <CourseSub item={item} />;
     });
