@@ -7,7 +7,7 @@ import StarReviews from "../../../components/StarReviews/StarReviews";
 import CourseDetailDescription from "./CourseDetailDescription/CourseDetailDescription";
 import CourseDetailReview from "./CourseDetailReview/CourseDetailReview";
 import CourseDetailCurriculum from "./CourseDetailCurriculum/CourseDetailCurriculum";
-import {  layDanhMucKhoaHoc } from "../../../redux/actions/QuanLyKhoaHocAction";
+import { layDanhMucKhoaHoc } from "../../../redux/actions/QuanLyKhoaHocAction";
 export class CourseDetailLeft extends Component {
   constructor(props) {
     super(props);
@@ -34,7 +34,7 @@ export class CourseDetailLeft extends Component {
         <div className="courseDetailLeft__title">
           <h1>{khoaHocDaChon.tenKhoaHoc}</h1>
           <div className="row ">
-            <div className="col-md-4">
+            <div className="col-4">
               <div className="teacher">
                 <img src={author} alt="" />
                 <div className="teacher__text">
@@ -43,17 +43,18 @@ export class CourseDetailLeft extends Component {
                 </div>
               </div>
             </div>
-            <div className="col-md-4">
+            <div className="col-4">
               <div className="category">
                 <GoListUnordered />
                 <div className="category__text">
                   <p>Category</p>
-                  { khoaHocDaChon.danhMucKhoaHoc? khoaHocDaChon.danhMucKhoaHoc.maDanhMucKhoahoc:"Thí đi"}
+                  <span>                  {khoaHocDaChon.danhMucKhoaHoc ? khoaHocDaChon.danhMucKhoaHoc.maDanhMucKhoahoc : "Thí đi"}
+                  </span>
                 </div>
               </div>
             </div>
-            <div className="col-md-4">
-              <div className="star text-right">
+            <div className="col-4">
+              <div className="star text-md-right">
                 <StarReviews />
                 <p>
                   <b>4.22</b> (<i>{khoaHocDaChon.luotXem} votes</i>)

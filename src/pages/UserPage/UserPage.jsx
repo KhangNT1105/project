@@ -20,10 +20,10 @@ export class UserPage extends Component {
         <UserOverlay />
         <div className="container py-5">
           <div className="row">
-            <div className="col-md-3">
+            <div className="col-xl-3 col-4">
               <UserSidebar pathname={this.props.location.pathname} />
             </div>
-            <div className="col-md-9">
+            <div className="col-xl-9 col-8">
               <UserContent />
             </div>
           </div>

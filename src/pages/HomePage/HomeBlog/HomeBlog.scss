@@ -1,7 +1,22 @@
 .homeBlog {
     padding: 50px 0;
 
-    .homeBlog__title {}
+    .homeBlog__title {
+        h1 {
+            position: relative;
+            padding-bottom: 5px;
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100px;
+                height: 4px;
+                background-color: black;
+
+            }
+        }
+    }
 
     .homeBlog__content {}
 

@@ -13,10 +13,10 @@ export default class HomeTeacher extends Component {
       <div className="homeTeacher">
         <div className="container">
           <div className="title">
-            <h1>Popular Instructors </h1>
+            <h1 className="homeTitle">Popular Instructors </h1>
           </div>
           <div className="row homeTeacher__content">
-            <div className=" col-md-6 col-lg-3 item item1">
+            <div className=" col-6 col-lg-3 item item1">
               <Tilt className="Tilt" options={{ max: 15 }}>
                 <div className="Titl-inner homeTeacher__card">
                   <div className="img-box">
@@ -52,7 +52,7 @@ export default class HomeTeacher extends Component {
                 </div>
               </Tilt>
             </div>
-            <div className="col-md-6 col-lg-3 item item2">
+            <div className="col-6 col-lg-3 item item2">
               <Tilt className="Tilt" options={{ max: 15 }}>
                 <div className="homeTeacher__card">
                   <div className="img-box">
@@ -89,7 +89,7 @@ export default class HomeTeacher extends Component {
                 </div>
               </Tilt>
             </div>
-            <div className="col-md-6 col-lg-3 item item3">
+            <div className="col-6 col-lg-3 item item3">
               <Tilt className="Tilt" options={{ max: 15 }}>
                 <div className="homeTeacher__card">
                   <div className="img-box">
@@ -127,7 +127,7 @@ export default class HomeTeacher extends Component {
                 </div>
               </Tilt>
             </div>
-            <div className="col-md-6 col-lg-3 item item4">
+            <div className="col-6 col-lg-3 item item4">
               <Tilt className="Tilt" options={{ max: 15 }}>
                 <div className="homeTeacher__card">
                   <div className="img-box">

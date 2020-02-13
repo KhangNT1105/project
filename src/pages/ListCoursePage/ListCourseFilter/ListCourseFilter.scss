@@ -11,6 +11,7 @@
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+
                     select {
                         width: 210px;
                         height: 50px;
@@ -37,12 +38,84 @@
                     .input-group-append {
                         button {
                             background-color: #478bca;
-                            color:white;
-                            svg{
+                            color: white;
+
+                            svg {
                                 font-size: 18px;
-                                width:70px;
-                                
+                                width: 70px;
+
                             }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:992px) {
+    .listCourseFilter {
+        .listCourseFilter__content {
+            p {
+                span {
+                    font-size: 14px !important;
+                }
+
+                select {
+                    height: 45px !important;
+                    font-size: 14px;
+                    width: 200px !important;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:768px){
+    .listCourseFilter{
+        .listCourseFilter__content{
+            .search{
+                .input-group{
+                    input{
+                        width:50% !important;
+                        font-size: 14px;
+                    }
+                    .input-group-append{
+                        button{
+                            width:60px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:375px) {
+    .listCourseFilter {
+        .listCourseFilter__content {
+            p {
+                span {
+                    font-size: 12px;
+                }
+
+                select {
+                    height: 35px !important;
+                    font-size: 12px;
+                    width: 180px !important;
+                }
+            }
+
+            .search {
+                .input-group {
+                    input {
+                        height: 35px !important;
+                        width: 60% !important;
+                        font-size: 12px;
+
+                    }
+
+                    .input-group-append {
+                        button {
+                            width: 40px;
                         }
                     }
                 }

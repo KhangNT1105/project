@@ -5,6 +5,7 @@ import { FiTwitter, FiYoutube, FiPhone } from 'react-icons/fi';
 import { GoLocation } from 'react-icons/go';
 import './AboutMe.scss'
 import team1 from '../../../assets/img/team-img-1.jpg'
+import SocialNetwork from '../../../components/SocialNetwork/SocialNetwork';
 export default class AboutMe extends Component {
     render() {
         return (
@@ -23,7 +24,8 @@ export default class AboutMe extends Component {
                                 <h1>I'm <span>NTK</span></h1>
                                 <h3>Front-end developer</h3>
                                 <p id="faStar"><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></p>
-                                <p id="socialNetwork"><AiOutlineSkype /><AiOutlineGooglePlus /><FiTwitter /><FiYoutube /></p>
+                                {/* <p id="socialNetwork"><AiOutlineSkype /><AiOutlineGooglePlus /><FiTwitter /><FiYoutube /></p> */}
+                                <SocialNetwork />
                                 <h5>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit rerum quia iste a eaque doloremque nostrum laboriosam libero autem mollitia.</h5>
                                 <div className="row">
                                     <div className="col-md-6 aboutMe__info--location">

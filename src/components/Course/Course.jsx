@@ -35,15 +35,15 @@ export class Course extends Component {
           </div>
           <div className="card__bottom">
             <div className="row">
-              <div className="col-md-6 left">
+              <div className="col-6 left">
                 <FaRegClock />
                 <span>{item.ngayTao}</span>
               </div>
-              <div className="col-md-6 right">
+              <div className="col-6 right">
                 <StarReviews />{" "}
                 <span> ({item.luotXem} votes, average: 4.22 out of 5)</span>
               </div>
-              <div className=" col-md-12 mt-3 cart">
+              <div className=" col-12 mt-3 cart">
                 <button
                   className="btn btn-danger"
                   onClick={() => {

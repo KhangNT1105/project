@@ -30,12 +30,14 @@ export const layDanhMucKhoaHoc = () => {
     // },1000)
   };
 };
-export const layDanhSachKhoaHoc = () => {
+export const layDanhSachKhoaHoc = (loading = true) => {
   return dispatch => {
-    dispatch({
-      type: actionType.SET_LOADING,
-      loading: true
-    });
+    if (loading === true) {
+      dispatch({
+        type: actionType.SET_LOADING,
+        loading: true
+      });
+    }
     axios({
       url:
         settings.domain +
@@ -51,12 +53,14 @@ export const layDanhSachKhoaHoc = () => {
       .catch(err => {
         console.log("err.response.data", err.response);
       });
-    setTimeout(() => {
-      dispatch({
-        type: actionType.SET_LOADING,
-        loading: false,
-      })
-    }, 1000)
+    if (loading === true) {
+      setTimeout(() => {
+        dispatch({
+          type: actionType.SET_LOADING,
+          loading: false,
+        })
+      }, 1000)
+    }
   };
 };
 export const themKhoaHoc = khoaHoc => {

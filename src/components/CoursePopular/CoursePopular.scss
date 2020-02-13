@@ -1,6 +1,7 @@
 .coursePopular {
-    padding:20px;
+    padding: 20px;
     transition: .5s;
+
     &:hover {
         box-shadow: 4px 4px 15px 0px;
 
@@ -15,7 +16,7 @@
                 .card-body {
                     .card-author {
                         &::before {
-                            width: 200px;
+                            width: 100%;
                         }
                     }
                 }
@@ -60,7 +61,8 @@
 
                 >p {
                     padding-top: 15px;
-                    &.card-text{
+
+                    &.card-text {
                         max-height: 111px;
                         overflow: hidden;
                     }
@@ -109,6 +111,106 @@
                         font-size: 18px;
                         font-weight: 600;
                     }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:576px) {
+    .coursePopular {
+        .card-deck {
+            .card {
+
+                .card-img-top {
+                    height: 100px;
+
+                    .card-overlay {
+                        width: 90px;
+                        height: 30px;
+                        font-size: 12px;
+                    }
+                }
+
+                .card-body {
+                    h5 {
+                        font-size: 15px;
+                    }
+
+                    .card-author {
+                        p {
+                            font-size: 14px;
+                        }
+
+                        &::before {
+                            width: 60px;
+                        }
+                    }
+
+                    .card-text {
+                        font-size: 13px;
+                    }
+
+                    .card-user {
+                        span {
+                            font-size: 13px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:415px) {
+    .coursePopular {
+        padding:0;
+        .card-deck {
+            .card {
+
+
+                .card-img-top {
+                    height: 100px;
+
+                    .card-overlay {
+                        width: 90px;
+                        height: 30px;
+                        font-size: 12px;
+                    }
+                }
+
+                .card-body {
+                    h5 {
+                        font-size: 15px;
+                        max-height: 35px;
+                        min-height: 35px !important;
+                        overflow: hidden;
+                    }
+
+                    .card-author {
+                        p {
+                            font-size: 14px;
+                        }
+
+                        &::before {
+                            width: 60px;
+                        }
+                    }
+
+                    .card-text {
+                        max-height: 90px !important;
+                        overflow: hidden;
+                    }
+
+                    .card-user {
+                        justify-content: space-between;
+                        span {
+                            // &.luotXem {
+                            //     display: none;
+                            // }
+                        }
+                    }
+
                 }
             }
         }

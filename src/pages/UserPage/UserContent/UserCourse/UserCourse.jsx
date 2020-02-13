@@ -42,10 +42,8 @@ export class UserCourse extends Component {
       console.log("usercourse", userCourse);
 
       return userCourse.map((item) => {
-        return <div className="col-md-4 userCourse__item">
-          {/* <div className="coursePopular"> */}
+        return <div className="col-xl-4 col-md-6 col-12 userCourse__item">
           <CoursePopular item={item} />
-          {/* <div className="userCourse__button"> */}
           <a onClick={() => this.props.huyGhiDanh(this.props.thongTinNguoiDungDaChon.taiKhoan, item.maKhoaHoc)} className="courseOverlay">
             <span></span>
             <span></span>
@@ -53,21 +51,12 @@ export class UserCourse extends Component {
             <span></span>
             Unenroll
           </a>
-          {/* </div> */}
-          {/* </div> */}
+
 
         </div>
       })
 
     }
-
-    // if (!this.state.dsKhoaHocGhiDanh) {
-    //   console.log("zo day")
-    //   for (let i = 0; i < this.state.dsKhoaHocGhiDanh.length; i++) {
-
-    //     userCourse.push(this.props.mangDanhSachKhoaHoc.find(item => item.maKhoaHoc === this.state.dsKhoaHocGhiDanh[i].maKhoaHoc));
-    //   }
-    // }
   }
   render() {
     console.log("state", this.state.dsKhoaHocGhiDanh);
@@ -75,9 +64,6 @@ export class UserCourse extends Component {
     return (
       <div className="userCourse">
         <div className="row">
-          {/* {this.props.loading ? <div className="col-md-12">
-            <LoadingComponent />
-          </div> : this.renderCourses()} */}
           {this.renderCourses()}
         </div>
       </div>

@@ -35,7 +35,7 @@ export class LoginPage extends Component {
             this.setState({
                 loading: false
             })
-        },1000)
+        }, 1000)
     }
     componentDidMount() {
         this.props.layDanhSachNguoiDung();
@@ -112,9 +112,7 @@ export class LoginPage extends Component {
 
     }
     render() {
-        console.log("container", this.container);
-        let className = '';
-        this.state.isSignInForm ? className = "container " : className = "container right-panel-active"
+        let className = `loginPage__form ${this.state.isSignInForm ? "" : "right-panel-active"}`;
         let { accountSignUp, accountSignIn } = this.state;
         return (
             <>
@@ -129,7 +127,7 @@ export class LoginPage extends Component {
 
                         </div>
                         {/* {this.state.isSignInForm ? this.signInForm() : this.signUpForm()} */}
-                        <div className={className} id="container">
+                        <div className={className} >
                             <div className="form-container sign-up-container">
                                 <form onSubmit={this.handleSubmit}>
                                     <h1>Create Account</h1>
@@ -144,17 +142,13 @@ export class LoginPage extends Component {
                                                 <a style={{ cursor: 'pointer' }} onClick={renderProps.onClick} className="social"><i className="fab fa-facebook-f" /></a>
                                             )}
                                         />
-                                        {/* <a href="#" className="social"><i className="fab fa-google-plus-g" /></a> */}
-                                        {/* <a href="#" className="social"><i className="fab fa-linkedin-in" /></a> */}
                                     </div>
                                     <span>or use your email for registration</span>
                                     <input type="text" name="taiKhoan" value={accountSignUp.taiKhoan} placeholder="Username" onChange={this.handleChange} />
                                     <input type="password" name="matKhau" value={accountSignUp.matKhau} placeholder="Password" onChange={this.handleChange} />
                                     <input type="text" name="hoTen" value={accountSignUp.hoTen} placeholder="Fullname" onChange={this.handleChange} />
                                     <input type="email" name="email" value={accountSignUp.email} placeholder="Email" onChange={this.handleChange} />
-                                    <button onClick={() => {
-                                        // document.getElementById('container').classList.add("right-panel-active")
-                                    }}>Sign Up</button>
+                                    <button>Sign Up</button>
                                 </form>
                             </div>
                             <div className="form-container sign-in-container">
@@ -171,17 +165,18 @@ export class LoginPage extends Component {
                                                 return <a style={{ cursor: 'pointer' }} onClick={renderProps.onClick} className="social"><i className="fab fa-facebook-f" /></a>
                                             }}
                                         />
-                                        {/* <a href="#" className="social"><i className="fab fa-google-plus-g" /></a> */}
-                                        {/* <a href="#" className="social"><i className="fab fa-linkedin-in" /></a> */}
                                     </div>
                                     <span>or use your account</span>
                                     <input type="text" name="taiKhoan" value={accountSignIn.taiKhoan} placeholder="Username" onChange={this.handleChange} />
                                     <input type="password" name="matKhau" value={accountSignIn.matKhau} placeholder="Password" onChange={this.handleChange} />
                                     <a href="#">Forgot your password?</a>
-                                    <button onClick={() => {
+                                    {/* <button onClick={() => {
                                         document.getElementById('container').classList.remove("right-panel-active");
 
-                                    }}>Sign In</button>
+                                    }}>Sign In</button> */}
+                                    <button>
+                                        Sign In
+                                    </button>
                                 </form>
                             </div>
 

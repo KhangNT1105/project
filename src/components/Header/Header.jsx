@@ -49,19 +49,19 @@ export class Header extends Component {
                           HOME
                             </NavLink>
                       </li>
-                      <li className="">
+                      <li >
                         <NavLink to="/courses">
-                          COURSE <span className="" />
+                          COURSE <span />
                         </NavLink>
-          
-                        {/* <ul >
-                          <li ><NavLink to="/courses/FrontEnd">FRONT END</NavLink></li>
-                          <li ><NavLink to="/courses/BackEnd">BACK END</NavLink></li>
-                          <li ><NavLink to="/courses/FullStack">FULLSTACK</NavLink></li>
-                          <li ><NavLink to="/courses/DiDong">MOBILE</NavLink></li>
-                          <li ><NavLink to="/courses/Design">DESIGN</NavLink></li>
-                          <li ><NavLink to="/courses/TuDuy">BEGINNER</NavLink></li>
-                        </ul> */}
+
+                        <ul >
+                          <li ><NavLink to="/courses/category/FrontEnd">FRONT END</NavLink></li>
+                          <li ><NavLink to="/courses/category/BackEnd">BACK END</NavLink></li>
+                          <li ><NavLink to="/courses/category/FullStack">FULLSTACK</NavLink></li>
+                          <li ><NavLink to="/courses/category/DiDong">MOBILE</NavLink></li>
+                          <li ><NavLink to="/courses/category/Design">DESIGN</NavLink></li>
+                          <li ><NavLink to="/courses/category/TuDuy">BEGINNER</NavLink></li>
+                        </ul>
                       </li>
                       <li>
                         <NavLink to="/blog">BLOG</NavLink>
@@ -71,50 +71,7 @@ export class Header extends Component {
                       </li>
                     </ul>
                   </div>
-                  {/* <div className="drawer drawer--left">
-                    <div role="banner">
-                      <button
-                        type="button"
-                        className="drawer-toggle drawer-hamburger"
-                      >
-                        <span className="sr-only">toggle navigation</span>
-                        <span className="drawer-hamburger-icon" />
-                      </button>
-                      <nav className="drawer-nav" role="navigation">
-                        <ul className="drawer-menu">
-                          <li>
-                            <a className="drawer-brand" href="#">
-                              <img src={logo1} width="90px" height="90px" alt="" />
-                            </a>
-                          </li>
-                          <li>
-                            <NavLink to="/"  >
-                              HOME
-                            </NavLink>
-                          </li>
-                          <li className="drawer-dropdown">
-                            <NavLink  to="/courses">
-                              COURSE <span className="drawer-caret" />
-                            </NavLink>
-                            <ul >
-                              <li ><NavLink to="/courses/FrontEnd">FRONT END</NavLink></li>
-                              <li ><NavLink to="/courses/BackEnd">BACK END</NavLink></li>
-                              <li ><NavLink to="/courses/FullStack">FULLSTACK</NavLink></li>
-                              <li ><NavLink to="/courses/DiDong">MOBILE</NavLink></li>
-                              <li ><NavLink to="/courses/Design">DESIGN</NavLink></li>
-                              <li ><NavLink to="/courses/TuDuy">BEGINNER</NavLink></li>
-                            </ul>
-                          </li>
-                          <li>
-                            <NavLink  to="/blog">BLOG</NavLink>
-                          </li>
-                          <li>
-                            <NavLink  to="/about">ABOUT</NavLink>
-                          </li>
-                        </ul>
-                      </nav>
-                    </div>
-                  </div> */}
+
                 </div>
                 <div className=" col-4 col-sm-4 col-md-4 col-lg-3  ">
                   <NavLink
@@ -123,7 +80,7 @@ export class Header extends Component {
                     className="header__logo"
                   >
                     <img src={logo} alt="" />
-                    <h1>
+                    <h1 className="header__logo--brand">
                       <span>LMS</span>tudy
                     </h1>
                   </NavLink>
@@ -165,30 +122,30 @@ export class Header extends Component {
                           <div className="item__dropdown">
                             <ul>
                               <li>
-                                <NavLink to="/courses/FrontEnd">
+                                <NavLink to="/courses/category/FrontEnd">
                                   Front End
                                 </NavLink>
                               </li>
                               <li>
-                                <NavLink to="/courses/BackEnd" href="">
+                                <NavLink to="/courses/category/BackEnd" href="">
                                   Back End
                                 </NavLink>
                               </li>
                               <li>
-                                <NavLink to="/courses/FullStack">
+                                <NavLink to="/courses/category/FullStack">
                                   FullStack
                                 </NavLink>
                               </li>
                               <li>
-                                <NavLink to="/courses/DiDong">Mobile</NavLink>
+                                <NavLink to="/courses/category/DiDong">Mobile</NavLink>
                               </li>
                               <li>
-                                <NavLink to="/courses/Design" href="">
+                                <NavLink to="/courses/category/Design" href="">
                                   Design
                                 </NavLink>
                               </li>
                               <li>
-                                <NavLink to="/courses/TuDuy">Beginner</NavLink>
+                                <NavLink to="/courses/category/TuDuy">Beginner</NavLink>
                               </li>
                             </ul>
                           </div>

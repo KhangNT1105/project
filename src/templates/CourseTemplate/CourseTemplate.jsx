@@ -1,16 +1,28 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Route } from "react-router-dom";
-import Contact from "../../components/Contact/Contact";
 import Header from "../../components/Header/Header";
-import { Footer } from "../../components/Footer/Footer";
+import FloatingFunction from "../../components/FloatingFunction/FloatingFunction";
+import Loader from "../../components/Loader/Loader";
+import Footer2 from "../../components/Footer2/Footer2";
 
 const CourseLayout = props => {
+  const [state, setstate] = useState({
+    loading: true,
+  })
+  useEffect(() => {
+    setTimeout(() => {
+      setstate({
+        loading: false
+      })
+    }, 1000);
+  }, [])
   return (
     <Fragment>
       <Header />
-      <Contact />
+      {state.loading ? <Loader /> : <></>}
+      <FloatingFunction />
       {props.children}
-      <Footer />
+      <Footer2 />
     </Fragment>
   );
 };

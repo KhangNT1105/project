@@ -6,7 +6,7 @@ import CoursePopular from "../CoursePopular/CoursePopular";
 import NotFound from "../NotFound/NotFound";
 export class ListCoursePopular extends Component {
   componentDidMount() {
-    this.props.layDanhSachKhoaHoc();
+    this.props.layDanhSachKhoaHoc(false);
   }
   arr = [];
 
@@ -17,7 +17,6 @@ export class ListCoursePopular extends Component {
         return item.danhMucKhoaHoc.maDanhMucKhoahoc === maDanhMuc;
       });
     }
-    console.log(maDanhMuc, this.arr);
     if (this.arr.length !== 0) {
       this.arr.sort((a, b) => {
         if (a.luotXem > b.luotXem) {
@@ -33,7 +32,7 @@ export class ListCoursePopular extends Component {
       }
       return this.arr.map((item, index) => {
         return (
-          <div className="col-xl-3 col-lg-4" key={index}>
+          <div className="col-xl-3 col-lg-4 col-6" key={index}>
             <NavLink to={`/coursedetail/${item.maKhoaHoc}`}>
               <CoursePopular item={item} />
             </NavLink>
@@ -44,7 +43,6 @@ export class ListCoursePopular extends Component {
     return <NotFound />;
   };
   render() {
-    console.log(this.props.mangDanhSachKhoaHoc);
 
     return (
       <div className="ListCoursePopular">
@@ -59,8 +57,8 @@ export class ListCoursePopular extends Component {
 }
 export const mapDispatchToProps = dispatch => {
   return {
-    layDanhSachKhoaHoc: () => {
-      dispatch(layDanhSachKhoaHoc());
+    layDanhSachKhoaHoc: (a) => {
+      dispatch(layDanhSachKhoaHoc(a));
     }
   };
 };

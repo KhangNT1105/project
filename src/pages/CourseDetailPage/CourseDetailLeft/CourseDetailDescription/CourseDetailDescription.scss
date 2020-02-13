@@ -8,3 +8,27 @@
         }
     }
 }
+@media screen and (max-width:992px){
+    .courseDetailDescription{
+        .detailImg{
+            img{
+                height: 350px;
+            }
+            .detail__Description{
+                p{
+                    font-size: 14px;
+                }
+                h1{
+                    font-weight: 700;
+
+                    font-size: 30px;
+                }
+                ul{
+                    li{
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}

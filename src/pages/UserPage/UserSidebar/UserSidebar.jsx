@@ -6,9 +6,6 @@ import { IoIosArrowRoundBack } from 'react-icons/io'
 import avt from "../../../assets/img/avt.png";
 export default class UserSidebar extends Component {
   taiKhoan = JSON.parse(localStorage.getItem("userLogin"));
-  // componentWillMount() {
-  //   console.log("this.props", this.props.location)
-  // }
   render() {
     return (
       <div className="userSidebar">
@@ -29,22 +26,22 @@ export default class UserSidebar extends Component {
         <div className="userSidebar__someFunction">
           <ul>
             <li>
-              <NavLink to="">
+              <a >
                 <FaCertificate className="mr-2" />
                 My certificates
-              </NavLink>
+              </a>
             </li>
             <li>
-              <NavLink to="">
+              <a >
                 <FaRegEnvelope className="mr-2" />
                 My messages
-              </NavLink>
+              </a>
             </li>
             <li>
-              <NavLink to="">
+              <a >
                 <FaBuffer className="mr-2" />
                 Assigments
-              </NavLink>
+              </a>
             </li>
           </ul>
         </div>

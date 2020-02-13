@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux'
 import { NavLink } from "react-router-dom";
 import {
   AiOutlineUser,
@@ -8,12 +9,13 @@ import {
 } from "react-icons/ai";
 import "./SidebarAdmin.scss";
 import logo from "../../assets/img/logo_transparent2.png";
-export default class SidebarAdmin extends Component {
+export class SidebarAdmin extends Component {
   render() {
     const isActive = (path, match, location) => !!(match || path === location.pathname);
-
+    console.log("isSidebarOn", this.props.isSidebarOn)
+    let isSidebarOn = `sidebar ${this.props.isSidebarOn ? "" : "off"}`
     return (
-      <div className="sidebar">
+      <div className={isSidebarOn}>
         <div className="sidebar__content">
           <div className="sidebar__top">
             <NavLink to="/" className="sidebar__logo">
@@ -56,7 +58,7 @@ export default class SidebarAdmin extends Component {
                   </NavLink>
                 </li>
                 <li>
-                  <a href="">
+                  <a >
 
                     <AiOutlineMessage />
 
@@ -72,3 +74,10 @@ export default class SidebarAdmin extends Component {
     );
   }
 }
+
+export const mapStateToProps = (state) => {
+  return {
+    isSidebarOn: state.QuanLyNguoiDungReducer.isSidebarOn,
+  }
+}
+export default connect(mapStateToProps, null)(SidebarAdmin)

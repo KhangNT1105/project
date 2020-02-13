@@ -28,20 +28,20 @@ function App() {
           path="/coursedetail/:maKhoaHoc"
           Component={CourseDetailPage}
         />
-        {/* <CourseTemplate
-          exact
-          path="/coursedetail"
-          Component={CourseDetailPage}
-        /> */}
         <CourseTemplate
           exact
-          path="/courses/:maDanhMuc"
+          path="/courses/category/:maDanhMuc"
+          Component={ListCoursePage}
+        />
+        <CourseTemplate
+          exact
+          path="/courses/name/:tenKhoaHoc"
           Component={ListCoursePage}
         />
         <CourseTemplate exact path="/courses" Component={ListCoursePage} />
         <CourseTemplate exact path="/blog" Component={BlogPage} />
         <AdminTemplate path="/admin" Component={AdminPage} />
-        <HomeTemplate path="/user" Component={UserPage} />
+        <CourseTemplate path="/user" Component={UserPage} />
         <CourseTemplate path="/about" Component={AboutPage} />
         <Route exact path="/authorized" component={UnauthorizedPage} />
         <Redirect to="/authorized" />

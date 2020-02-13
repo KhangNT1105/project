@@ -6,14 +6,14 @@ import CourseList from "../../../components/CourseList/CourseList";
 import { layDanhSachKhoaHoc } from "../../../redux/actions/QuanLyKhoaHocAction";
 export class HomeCourse extends Component {
   componentDidMount() {
-    this.props.layDanhSachKhoaHoc();
+    this.props.layDanhSachKhoaHoc(false);
   }
   render() {
     return (
       <section className="homeCourse">
         <div className="container">
           <div className="homeCourse__title">
-            <h1>COURSES</h1>
+            <h1 className="homeTitle">COURSES</h1>
           </div>
           <div className="row">
             <div className="col-xs-12 col-md-4 ">
@@ -51,8 +51,8 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    layDanhSachKhoaHoc: () => {
-      dispatch(layDanhSachKhoaHoc());
+    layDanhSachKhoaHoc: (a) => {
+      dispatch(layDanhSachKhoaHoc(a));
     }
   };
 };

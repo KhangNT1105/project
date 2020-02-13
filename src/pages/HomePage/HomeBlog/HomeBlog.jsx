@@ -7,7 +7,7 @@ import arrImg from '../../../data/blogImg';
 export default class HomeBlog extends Component {
     renderBlog = () => {
         return data.map((item, index) => {
-            return <div className="col-md-4">
+            return <div className="col-6 col-lg-4">
                 <BlogItem item={item} img={arrImg[index]} />
             </div>
         })
@@ -17,7 +17,7 @@ export default class HomeBlog extends Component {
             <div className="homeBlog">
                 <div className="container">
                     <div className="homeBlog__title">
-                        <h1>Lastest Stories</h1>
+                        <h1 className="homeTitle">Lastest Stories</h1>
                     </div>
                     <div className="homeBlog__content">
                         <div className="row">

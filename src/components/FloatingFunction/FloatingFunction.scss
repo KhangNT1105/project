@@ -1,0 +1,77 @@
+.floating-function {
+    // input[type="checkbox"] {
+    //     position: fixed;
+    //     bottom: 20px;
+    //     right: 20px;
+    //     cursor: pointer;
+    //     width: 50px;
+    //     height: 50px;
+    //     opacity: 0;
+    //     z-index: 100000;
+    // }
+
+    // .icon {
+    //     position: fixed;
+    //     bottom: 20px;
+    //     z-index: 1000001;
+    //     right: 20px;
+    //     font-size: 50px;
+    //     pointer-events: none;
+    // }
+    .function__icon {
+        position: fixed;
+        bottom: 20px;
+        z-index: 1000001;
+        right: 20px;
+        font-size: 50px;
+        transition: .5s;
+
+        cursor: pointer;
+
+        &.activated {
+     
+            &~.function__top {
+                bottom: 120px;
+                opacity: 1;
+            }
+
+            &~.function__home {
+                bottom: 95px;
+                right: 96px;
+                opacity: 1;
+
+            }
+
+            &~.function__social {
+                opacity: 1;
+                right: 120px;
+                bottom: 16px
+            }
+        }
+    }
+
+    .function__top,
+    .function__home,
+    .function__social {
+        position: fixed;
+        bottom: 20px;
+        z-index: 1000000;
+        right: 20px;
+        font-size: 50px;
+        opacity: 0;
+        transition: .5s;
+        cursor: pointer;
+    }
+
+    .function__social {
+        font-size: 60px;
+    }
+
+    .function__home {
+        svg {
+            padding:5px;
+            border: 5px solid black;
+            border-radius: 50%;
+        }
+    }
+}

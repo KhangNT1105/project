@@ -9,7 +9,7 @@
     background: #000;
 
     width: 100%;
-    height: 40vh;
+    height: 42vh;
     // height: ;
     background-repeat: no-repeat;
     background-size: cover;
@@ -26,12 +26,12 @@
         content: '';
         background-image: url('../../../assets/img/slider-bottom-pattern.png');
         position: absolute;
-        bottom: -35px;
+        bottom: -37px;
         width: 100%;
         display: block;
         background-position: center;
         background-size: cover;
-        height: 94px;
+        height: 96px;
         left: 0;
     }
 
@@ -39,7 +39,7 @@
         height: 100%;
         width: 100%;
         position: absolute;
-        top: 60%;
+        top: 56%;
         left: 0;
 
 
@@ -58,6 +58,36 @@
         a {
             text-decoration: none;
             color: white;
+        }
+    }
+}
+
+@media screen and (max-width:500px) {
+    .overlayHeader {
+        height: 30vh;
+
+        &::before {
+            height: 90px !important;
+            bottom: -39px;
+        }
+
+        img {}
+
+        .overlay {
+            top: 50%;
+
+        }
+
+        h1 {
+            font-size: 25px;
+        }
+
+        p {
+            font-size: 13px !important;
+
+            a {
+                font-size: 13px;
+            }
         }
     }
 }

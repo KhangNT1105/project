@@ -56,3 +56,24 @@
         }
     }
 }
+@media screen and (max-width:998px){
+    .homeFact{
+        .homeFact__content{
+            .homeFact__item{
+                .icon{
+                    svg{
+                        font-size: 40px;
+                    }
+                }
+                .text{
+                    h1{
+                        font-size: 45px;
+                    }
+                    span{
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

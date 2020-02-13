@@ -88,3 +88,19 @@
         }
     }
 }
+@media screen and (max-width:576px){
+    .card{
+        .card__img{
+            .card-img-top{
+                height:200px;
+            }
+        }
+        .card-body{
+            .card__top{
+                h5{
+                    font-size: 18px;
+                }
+            }
+        }
+    }   
+}

@@ -1,0 +1,60 @@
+.aboutMessage {
+    margin:50px 0 ;
+    .aboutMessage__content {
+        .aboutMessage__title {
+            text-align: center;
+
+            h1 {
+                font-weight: 800;
+            }
+
+            p {
+                font-weight: 600;
+            }
+        }
+
+        .aboutMessage__form {
+            form {
+
+                input,
+                textarea {
+                    width: 100%;
+                    padding: 20px;
+                    border: 2px dashed;
+                    border-color: rgba(0, 0, 0, 0.15);
+                    border-radius: 10px;
+                    transition: .3s;
+
+                    &:focus {
+                        border-color: black;
+                        outline: none;
+                    }
+
+                }
+
+                textarea {
+                    margin-top: 25px;
+                }
+
+                .sendMessage {
+                    text-align: center;
+
+                    button {
+                        margin-top: 20px;
+                        text-align: center;
+                        font-size: 20px;
+                        font-weight: 700;
+                        padding: 15px 30px;
+                        background-color: transparent;
+                        border: 2px solid black;
+                        border-radius: 8px;
+                        transition: .3s;
+                        &:hover {
+                            background-color: #fcd21c;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

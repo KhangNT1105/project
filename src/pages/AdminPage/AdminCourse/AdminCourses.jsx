@@ -21,19 +21,14 @@ export class AdminCourses extends Component {
       title: "Add Course"
     };
   }
-
   componentDidMount() {
     this.props.layDanhSachKhoaHoc();
   }
   modalUpdate = maKhoaHoc => {
-    this.props.layChiTietKhoaHoc(maKhoaHoc,0);
+    this.props.layChiTietKhoaHoc(maKhoaHoc, 0);
     this.setState({
       title: "Update Course"
     });
-    // document.getElementById("maKhoaHoc").value = course.maKhoaHoc;
-    // document.getElementById("tenKhoaHoc").value = course.tenKhoaHoc;
-    // document.getElementById("moTa").value = course.moTa;
-    // document.getElementById("luotXem").value = course.luotXem;
   };
   modalAdd = () => {
     this.setState({ title: "Add Course" });
@@ -56,11 +51,10 @@ export class AdminCourses extends Component {
               className="mr-3"
               width="115px"
               height="65px"
-              alt=""
             />
           </td>
           <td>
-            <p>{item.tenKhoaHoc}</p>
+            <p style={{ maxWidth: '300px' }}>{item.tenKhoaHoc}</p>
           </td>
           <td>
             <p>{item.nguoiTao.hoTen}</p>
@@ -68,7 +62,8 @@ export class AdminCourses extends Component {
           <td>
             <p>{item.ngayTao}</p>
           </td>
-          <td>
+
+          <td style={{ whiteSpace: 'nowrap' }}>
             <button
               className="btn-update btn btn-primary mr-2"
               onClick={() => {
@@ -98,15 +93,8 @@ export class AdminCourses extends Component {
     });
     console.log(this.state.tenKhoaHoc);
     this.props.timKiemKhoaHoc(this.state.tenKhoaHoc);
-    // let listCourses = this.props.mangDanhSachKhoaHoc.map((item) => {
-    //   return item.tenKhoaHoc.toLowerCase().indexOf(this.state.tenKhoaHoc) !== -1;
-    // })
-    // console.log(listCourses);
-    // this.props.mangDanhSachKhoaHoc=listCourses;
   };
   render() {
-    console.log("props khoa hoc", this.props.khoaHocDaChon);
-    console.log("loading", this.props.loading);
     return (
       <>
         <div className="adminCourse">
@@ -170,8 +158,8 @@ export class AdminCourses extends Component {
                           <th scope="col">#</th>
                           <th scope="col">Picture</th>
                           <th scope="col">Course Name</th>
-                          <th scope="col">Created By</th>
-                          <th scope="col">Published at</th>
+                          <th scope="col">Last Modified By</th>
+                          <th scope="col">Last Modified Date</th>
                           <th scope="col">
                             <IoMdSettings />
                           </th>
@@ -209,8 +197,8 @@ const mapDispatchToProps = dispatch => {
     timKiemKhoaHoc: tenKhoaHoc => {
       dispatch(timKiemKhoaHoc(tenKhoaHoc));
     },
-    layChiTietKhoaHoc: (maKhoaHoc,loading) => {
-      dispatch(layChiTietKhoaHoc(maKhoaHoc,loading));
+    layChiTietKhoaHoc: (maKhoaHoc, loading) => {
+      dispatch(layChiTietKhoaHoc(maKhoaHoc, loading));
     }
   };
 };

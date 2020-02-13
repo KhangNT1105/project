@@ -11,8 +11,8 @@ export default class BookComponent extends Component {
         return (
             <div className="bookComponent">
                 <div className="homeHighlight__img ">
-                    <img className="base " src={imgBase} alt="" />
-                    <img className="book1 " src={book1} alt="" />
+                    <img className="base" src={imgBase} alt="" />
+                    <img className="book1" src={book1} alt="" />
                     <img className="book2" src={book2} alt="" />
                     <img className="magnifier" src={magnifier} alt="" />
                     <img className="bubblespeech" src={bubblespeech} alt="" />

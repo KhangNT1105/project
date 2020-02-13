@@ -11,17 +11,20 @@ export default class CourseDetailReview extends Component {
       <div className="courseDetailReview">
         <div className="container-fluid">
           <div className="row">
-            <div className="col-md-4">
-              <div className="average__rating">
-                <div className="content">
-                  <h1>4.22</h1>
-                  <StarReviews />
-                  <span>{luotXem} Ratings</span>
+            <div className="col-12 col-xl-4 ">
+              <div className="courseDetailReview__average">
+                <div className="average__rating ">
+                  <div className="content">
+                    <h1>4.22</h1>
+                    <StarReviews />
+                    <span>{luotXem} Ratings</span>
+                  </div>
                 </div>
               </div>
+
             </div>
-            <div className="col-md-8">
-              <div className="detail__rating">
+            <div className="col-12 col-xl-8">
+              <div className="detail__rating ">
                 <div className="content">
                   <h5>Detailed Rating</h5>
                   <table class="table">

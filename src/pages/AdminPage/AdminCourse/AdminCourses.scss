@@ -89,3 +89,34 @@
 .btn-delete {
     background-color: #db4912;
 }
+
+@media screen and (max-width:1200px){
+    .adminCourse {
+        .adminCourse__content {
+          
+            .adminCourse__table {
+                padding: 0 40px;
+    
+                .adminCourse__table--content {
+                    .table__course {    
+                        thead {
+                            tr {
+                                th {
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+    
+                        tr {
+                            td {
+                                font-size: 13px;
+                                h5 {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}

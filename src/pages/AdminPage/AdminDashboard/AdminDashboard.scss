@@ -1,0 +1,32 @@
+.adminDashboard {
+    .adminDashboard__content {
+        .adminDashboard__topCourses {
+            background-color: #fff;
+            padding: 10px 20px;
+            box-shadow: 0 1px 15px rgba(0, 0, 0, .04), 0 1px 6px rgba(0, 0, 0, .04);
+            border-radius: 15px;
+
+            table {
+                border: none;
+
+                thead {
+                    tr {
+                        th {
+                            border-top: none;
+                            border-bottom: none;
+                        }
+                    }
+                }
+
+                tr {
+                    td {
+                        border: none;
+
+                        h5 {}
+                    }
+
+                }
+            }
+        }
+    }
+}

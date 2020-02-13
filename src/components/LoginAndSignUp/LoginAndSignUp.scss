@@ -1,0 +1,12 @@
+@media screen and (max-width:576px) {
+    .signup {
+        display: none;
+    }
+}
+@media screen and (max-width:415px) {
+    .login{
+        button{
+            font-size: 14px;
+        }
+    }
+}

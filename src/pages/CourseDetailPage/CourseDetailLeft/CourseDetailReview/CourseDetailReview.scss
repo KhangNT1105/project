@@ -1,49 +1,79 @@
 .courseDetailReview {
     padding: 50px;
 
-    .average__rating {
-        border: 2px solid black;
-        border-radius: 50%;
-        width: 242px;
-        height: 257px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .courseDetailReview__average {
+        .average__rating {
+            border: 2px solid black;
+            border-radius: 50%;
+            width: 242px;
+            height: 257px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-        >.content {
-            text-align: center;
+            >.content {
+                text-align: center;
 
-            h1 {
-                font-weight: 300;
-                font-size: 90px;
+                h1 {
+                    font-weight: 300;
+                    font-size: 90px;
 
-            }
+                }
 
-            span {
-                font-size: 13px;
-                font-weight: 700;
+                span {
+                    font-size: 13px;
+                    font-weight: 700;
+                }
             }
         }
     }
-    .detail__rating{
-        .content{
+
+    .detail__rating {
+        .content {
             h5 {
-                padding-left:.75rem;
+                padding-left: .75rem;
             }
-            table{
-                tbody{
-                    tr{
+
+            table {
+                tbody {
+                    tr {
                         display: flex;
                         align-items: center;
-                        td{
+
+                        td {
                             border-top: none;
-                            &.bar{
-                                width:177px;
+
+                            &.bar {
+                                width: 177px;
                             }
                         }
                     }
                 }
             }
         }
+    }
+}
+
+@media screen and (max-width:1200px) {
+    .courseDetailReview {
+        .courseDetailReview__average {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+        .detail__rating{
+            display: flex;
+            justify-content: center;
+            .content{
+                h5{
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:500px){
+        .courseDetailReview {
+            padding:50px 0;
     }
 }

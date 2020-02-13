@@ -38,8 +38,8 @@ export default class CoursePopular extends Component {
                   : item.moTa}
               </p>
               <div className="card-user">
-                <FiUsers />
-                <span className="pr-3">{item.luotXem}</span>
+              
+                <span className="pr-md-3 luotXem">  <FiUsers />{item.luotXem}</span>
                 <StarReviews />
                 <div>
                   <span>Free</span>

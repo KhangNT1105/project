@@ -16,21 +16,26 @@ export class ListCourseFilter extends Component {
       tenKhoaHoc: ""
     };
   }
-  componentDidMount() {
+  service = () => {
+    let { params } = this.props.match;
+    let paramKey = Object.keys(this.props.match.params)[0];
     this.props.layDanhMucKhoaHoc();
-    if (this.props.maDanhMuc !== "") {
-      this.props.layDanhSachKhoaHocTheoMaDanhMuc(this.props.maDanhMuc);
+    if (paramKey === undefined) {
+      this.props.layDanhSachKhoaHoc();
     }
-    console.log("this.props.filter", this.props.maDanhMuc);
+    if (paramKey === 'tenKhoaHoc') {
+      this.props.timKiemKhoaHoc(params.tenKhoaHoc);
+    }
+    if (paramKey === 'maDanhMuc') {
+      this.props.layDanhSachKhoaHocTheoMaDanhMuc(params.maDanhMuc);
+    }
+  }
+  componentDidMount() {
+    this.service();
   }
   componentDidUpdate(prevProps) {
-    console.log("this.props.filter", this.props.maDanhMuc);
-    if (prevProps.maDanhMuc !== this.props.maDanhMuc) {
-      if (this.props.maDanhMuc === undefined) {
-        this.props.layDanhSachKhoaHoc();
-      } else {
-        this.props.layDanhSachKhoaHocTheoMaDanhMuc(this.props.maDanhMuc);
-      }
+    if (prevProps.match !== this.props.match) {
+      this.service();
     }
   }
   renderCategories = () => {
@@ -51,20 +56,9 @@ export class ListCourseFilter extends Component {
         this.props.layDanhSachKhoaHoc();
       }
     }
-    // if (name === "tenKhoaHoc") {
-    //   if (value !== '') {
-    //     this.props.timKiemKhoaHoc(value);
-    //   }
-    //   else {
-    //     this.props.layDanhSachKhoaHoc();
-    //   }
-    // }
   };
-  searchCourse = (tenKhoaHoc) => {
-
-  }
   render() {
-    console.log("propsaasd", this.props.maDanhMuc);
+    console.log("url filter", this.props.match);
 
     return (
       <div className="listCourseFilter">

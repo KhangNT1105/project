@@ -1,7 +1,7 @@
 import './HomeCarousel.scss';
 import { IoIosBarcode, IoIosBookmarks, IoLogoBuffer, IoIosBulb, IoMdBriefcase } from 'react-icons/io'
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { timKiemKhoaHoc, layDanhSachKhoaHoc } from '../../../redux/actions/QuanLyKhoaHocAction';
 export class HomeCarousel extends Component {
@@ -12,7 +12,7 @@ export class HomeCarousel extends Component {
         }
     }
     componentDidMount() {
-        this.props.layDanhSachKhoaHoc();
+        this.props.layDanhSachKhoaHoc(false);
     }
     renderListCourseSearch = () => {
         let listCourses;
@@ -53,13 +53,13 @@ export class HomeCarousel extends Component {
                 </div>
                 <div className="container">
                     <div className="carousel__search">
-                        <h1>Getting started with <span>LMStudy</span></h1>
+                        <h1 >Getting started with <span>LMStudy</span></h1>
                         <p>We pride ourselves on providing the most up-to-date content for our students to learn each course.</p>
                         <div className="carousel__input">
                             <div className="input-group mb-3">
-                                <input onKeyUp={this.handleChange} autoComplete="off"  onKeyDown={this.handleChange} type="text" className="form-control" name='tenKhoaHoc' value={this.state.tenKhoaHoc} onChange={this.handleChange} placeholder="What do you want to learn ?" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                                <input onKeyUp={this.handleChange} autoComplete="off" onKeyDown={this.handleChange} type="text" className="form-control" name='tenKhoaHoc' value={this.state.tenKhoaHoc} onChange={this.handleChange} placeholder="What do you want to learn ?" aria-label="Recipient's username" aria-describedby="basic-addon2" />
                                 <div className="input-group-append">
-                                    <button className="btn btn-info ">Search</button>
+                                    <NavLink to={`/courses/name/${this.state.tenKhoaHoc}`} className="btn btn-info ">Search</NavLink>
                                 </div>
 
                             </div>
@@ -123,8 +123,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        layDanhSachKhoaHoc: () => {
-            dispatch(layDanhSachKhoaHoc())
+        layDanhSachKhoaHoc: (a) => {
+            dispatch(layDanhSachKhoaHoc(a))
         },
         timKiemKhoaHoc: (tenKhoaHoc) => {
             dispatch(timKiemKhoaHoc(tenKhoaHoc))

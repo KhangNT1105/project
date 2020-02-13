@@ -1,0 +1,23 @@
+@media screen and (max-width:998px) {
+    h1 {
+        &.homeTitle {
+            font-size: 40px !important;
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    h1 {
+        &.homeTitle {
+            font-size: 30px !important;
+        }
+    }
+}
+
+@media screen and (max-width:576px) {
+    h1 {
+        &.homeTitle {
+            font-size: 25px !important;
+        }
+    }
+}

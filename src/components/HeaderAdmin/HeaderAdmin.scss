@@ -3,31 +3,43 @@
     background: linear-gradient(to left, rgb(0, 162, 255), rgb(0, 47, 177));
     width: 100%;
     height: 80px;
-    position: absolute;
-    top: 0;
-    right: 0;
+    position: relative;
     // box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
     z-index: 999;
     color: white;
-
+    position: fixed;
     .headerAdmin__content {
-        position: absolute;
-        top: 15px;
-        right: 60px;
+
         display: flex;
         align-items: center;
 
+        .headerAdmin__sidebar {
+            position: absolute;
+            top: 15px;
+            left: 220px;
+            transition: .3s;
+            cursor: pointer;
+
+            svg {
+                font-size: 40px;
+            }
+            &.off{
+                left:20px;
+            }
+        }
 
         .headerAdmin__notify {
-            position: relative;
-            margin-right: 15px;
+            position: absolute;
+            top: 15px;
+            right: 150px;
+
             svg {
                 font-size: 40px;
             }
 
             .available {
                 position: absolute;
-                bottom:-10px;
+                bottom: -10px;
                 right: -5px;
                 width: 22px;
                 height: 22px;
@@ -41,6 +53,11 @@
 
 
             }
+        }
+        .headerAdmin__login{
+            position: absolute;
+            top: 15px;
+            right: 60px;
         }
     }
 }

@@ -94,3 +94,39 @@
         }
     }
 }
+@media screen and (max-width:576px){
+    .homeReview{
+        height: auto !important;
+        .homeReview__content{
+            .homeReview__feedback{
+                .homeReview__title{
+                    p{
+                        font-size: 14px;
+                    }
+                }
+                .homeReview__client{
+                    .review-item{
+                        .review-box{
+                            span{
+                                font-size: 14px;
+                            }
+
+                        }
+                        .review-client{
+                            img{
+                                width: 80px;
+                                height: 80px;
+                            }
+                            .fullName{
+                                p{
+                                    font-size: 13px;
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

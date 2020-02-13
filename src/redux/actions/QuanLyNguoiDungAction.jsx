@@ -375,3 +375,11 @@ export const layDanhSachLoaiNguoiDung = () => {
       });
   };
 };
+export const changeSidebarStatus = (status) => {
+  return dispatch => {
+    dispatch({
+      type: actionType.CHANGE_SIDEBAR_STATUS,
+      status: status
+    })
+  }
+}

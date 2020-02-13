@@ -7,6 +7,7 @@ const initialState = {
   mangDanhSachKhoaHocDaGhiDanh: [],
   thongTinNguoiDungDaChon: {},
   loading: false,
+  isSidebarOn: false,
 };
 
 export const QuanLyNguoiDungReducer = (state = initialState, action) => {
@@ -59,6 +60,9 @@ export const QuanLyNguoiDungReducer = (state = initialState, action) => {
       return { ...state };
     case actionType.SET_LOADING:
       state.loading = action.loading;
+      return { ...state };
+    case actionType.CHANGE_SIDEBAR_STATUS:
+      state.isSidebarOn = action.status;
       return { ...state };
     default:
       return { ...state };

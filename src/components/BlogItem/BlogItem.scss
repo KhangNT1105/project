@@ -61,3 +61,31 @@
         }
     }
 }
+@media screen and (max-width:576px){
+    .homeBlog__item{
+        .homeBlog__item--img{
+            img{
+                height: 220px;
+            }
+        }
+        .homeBlog__item--text{
+            h4{
+                font-size: 14px;
+            }
+            p{
+                &#grey{
+                    span{
+                        font-size: 10px;
+                        letter-spacing: 2px;
+                    }
+                }
+                &#content{
+                    font-size: 12px;
+                }
+            }
+            a{
+                font-size: 12px;
+            }
+        }
+    }
+}

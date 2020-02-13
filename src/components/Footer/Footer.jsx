@@ -23,14 +23,14 @@ export class Footer extends Component {
       <footer className="footer">
         <div className="container">
           <div className="row footer__content">
-            <div className="col-md-3">
+            <div className="col-4 col-sm-3">
               <div className="footer__about">
                 <div className="footer__title">
                   <h3>About</h3>
                 </div>
                 <div className="footer__logo mb-4">
                   <img src={logo} width="100px" height="100px" alt="" />
-                  <p>
+                  <p className="introduce">
                     LMStudy is Learning Management System (LMS) for online
                     education.
                   </p>
@@ -38,7 +38,7 @@ export class Footer extends Component {
                 <button className="btn btn-outline-dark">Start Learning</button>
               </div>
             </div>
-            <div className="col-md-3">
+            <div className="col-4 col-sm-3">
               <div className="footer__contact">
                 <div className="footer__title">
                   <h3>Contact</h3>
@@ -53,35 +53,31 @@ export class Footer extends Component {
                 <p>nguyentuannkhang@gmail.com</p>
               </div>
             </div>
-            <div className="col-md-3">
+            <div className="col-sm-3 col-4">
               <div className="footer__pages">
                 <div className="footer__title">
                   <h3>Page</h3>
                 </div>
-                <div className="row">
-                  <div className="col-md-6">
-                    <ul>
-                      <li>
-                        <NavLink to="/">HOME</NavLink>
-                      </li>
-                      <li>
-                        <NavLink to="/courses">COURSES</NavLink>
-                      </li>
-                      <li>
-                        <NavLink to="/event">EVENT</NavLink>
-                      </li>
-                      <li>
-                        <NavLink to="/blogs">BLOGS</NavLink>
-                      </li>
-                      <li>
-                        <NavLink to="/aboutus">ABOUT US</NavLink>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+                <ul>
+                  <li>
+                    <NavLink to="/">HOME</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/courses">COURSES</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/event">EVENT</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/blogs">BLOGS</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/aboutus">ABOUT US</NavLink>
+                  </li>
+                </ul>
               </div>
             </div>
-            <div className="col-md-3 text-right">
+            <div className="col-12 col-sm-3 text-right">
               <div className="btn-group dropup pb-3">
                 <button
                   type="button"
@@ -144,14 +140,14 @@ export class Footer extends Component {
                 </div>
               </div>
             </div>
-            <div className="col-md-12">
+            <div className="col-12">
               <div className="footer__informed">
                 <div className="footer__title">
                   <h3>Stay Informed</h3>
                 </div>
                 <div className="footer__form">
                   <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-12 col-sm-6">
                       <p>
                         To keep you in the loop of our latest news, register now
                         for our email newsletter.
@@ -181,7 +177,7 @@ export class Footer extends Component {
                         </div>
                       </div>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-12 col-sm-6">
                       <p>
                         Follow us and use the following social media platforms
                         to get in contact with us and to share your passion for

@@ -35,7 +35,7 @@ export class ListCourseContent extends Component {
     );
     return currentPages.map(item => {
       return (
-        <div className="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div className="col-6 col-md-6 col-lg-4 col-xl-3">
           <NavLink to={`/coursedetail/${item.maKhoaHoc}`}>
             <CoursePopular item={item} />
           </NavLink>
@@ -87,9 +87,9 @@ export class ListCourseContent extends Component {
     window.scrollTo(0, 450);
   };
 
-  componentDidMount() {
-    this.props.layDanhSachKhoaHoc();
-  }
+  // componentDidMount() {
+  //   this.props.layDanhSachKhoaHoc();
+  // }
 
   handleChange = e => {
     let { value, name } = e.target;
@@ -104,13 +104,13 @@ export class ListCourseContent extends Component {
           <div className="listCourseContent">
             <div className="container">
               <div className="row top">
-                <div className="col-md-6 left">
+                <div className="col-6 left">
                   <b>
                     Records Found :
                   <span>{this.props.mangDanhSachKhoaHoc.length}</span>
                   </b>
                 </div>
-                <div className="col-md-6 right">
+                <div className="col-6 right">
                   <div className="display">
                     {this.state.isGrid
                       ? this.renderIconGrid()

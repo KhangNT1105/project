@@ -30,6 +30,14 @@ export default class HomeReview extends Component {
                 }, {
                     breakpoint: 576,
                     settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        infinite: true,
+                    }
+                }
+                , {
+                    breakpoint: 415,
+                    settings: {
                         slidesToShow: 1,
                         slidesToScroll: 1,
                         infinite: true,
@@ -43,7 +51,7 @@ export default class HomeReview extends Component {
                     <div className="homeReview__content">
                         <div className="homeReview__feedback">
                             <div className="homeReview__title">
-                                <h1>What are students say</h1>
+                                <h1 className="homeTitle">What are students say</h1>
                                 <p>Etiam sodales orci sit amet vehicula pellentesque</p>
                             </div>
                             <div className="homeReview__client">

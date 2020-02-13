@@ -11,8 +11,8 @@ export default class HomeHighlight extends Component {
                             <BookComponent />
                         </div>
                         <div className=" col-12 col-md-6">
-                            <div className="pl-md-5 homeHighlight__content text-right">
-                                <h1>Limitless learning, more possibilities</h1>
+                            <div className="pl-md-5 homeHighlight__content text-md-right text-sm-center">
+                                <h1 className="homeTitle">Limitless learning, more possibilities</h1>
                                 <p>Online courses open the opportunity for learning to almost anyone, regardless of their scheduling commitments.</p>
                                 <button className="btn btn-primary btn-lg" >Read more</button>
                             </div>

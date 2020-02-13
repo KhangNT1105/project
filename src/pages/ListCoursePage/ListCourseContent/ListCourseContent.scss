@@ -1,13 +1,16 @@
 .listCourseContent {
-    padding:30px 0;
+    padding: 30px 0;
+
     .top {
         align-items: center;
-        .left{
-            b{
+
+        .left {
+            b {
                 padding: 10px;
-                border:2px solid black;
+                border: 2px solid black;
             }
         }
+
         .right {
             .display {
                 display: flex;
@@ -20,12 +23,34 @@
                     font-size: 18px;
                     margin-right: 5px;
                     cursor: pointer;
+
                     &.active {
                         background-color: #478bca;
-                        color:white;
+                        color: white;
                     }
+
                     svg {
                         margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:375px) {
+    .listCourseContent {
+        .top {
+            .left {
+                b {
+                    font-size: 13px;
+                }
+            }
+
+            .right {
+                .display {
+                    span {
+                        font-size: 13px;
                     }
                 }
             }

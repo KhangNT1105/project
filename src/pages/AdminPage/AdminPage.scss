@@ -1,21 +1,28 @@
 .adminPage {
 
+    .adminPage__container {
+        background-color: rgba(0, 0, 0, .05);
+        width: 100%;
+        .container-fluid {
+            padding-left: 200px;
+            overflow-x: hidden;
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding-right: 0;
+            transition: .3s;
+            &.off{
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            .adminPage__content {
+                padding-top: 113px;
+                min-height: 100vh;
+                padding-right: 15px;
+                padding-left: 15px;
+                
 
-    .container-fluid {
-        padding-left: 200px;
-        overflow-x: hidden;
-        background-color: #fff;
-        background-attachment: fixed;
-        background-size: cover;
-        background-repeat: no-repeat;
-        padding-right: 0;
-        .adminPage__content {
-            padding-top: 116px;
-            min-height: 100vh;
-            padding-right: 15px;
-            padding-left: 15px;
-            background-color: rgba(0,0,0,.05);;
-
+            }
         }
     }
 }

@@ -7,25 +7,47 @@ import "./UserLogin.scss";
 import avt from "../../assets/img/avt.png";
 import { dangXuat } from "../../redux/actions/QuanLyNguoiDungAction";
 export class UserLogin extends Component {
-  componentDidMount() {}
+  constructor(props) {
+    super(props);
+    this.state = {
+      show: false,
+    }
+  }
+
   render() {
-    // let userNameLogo = this.props.userLogin.hoTen.slice(0, 1);
+    let show = `userLogin__dropdown ${this.state.show ? "show" : ""}`;
+
+    window.onclick = (e) => {
+      console.log("e", e.target.matches(".userImg"));
+      if (!e.target.matches(".userImg")) {
+        this.setState({
+          show: false,
+        })
+      }
+    }
     return (
-      <NavLink to="/user" className="userLogin">
+      <div className="userLogin" onClick={() => this.setState({
+        show: !this.state.show,
+      })}>
+        {/* <input type="checkbox" className="checkbox" /> */}
         <div className="userLogin__logo">
-          <img src={avt} alt="" width="50" height="50" />
-          <div className="userLogin__dropdown">
+          <img src={avt} alt="" className="userImg" width="50" height="50" />
+          <div className={show}>
             <ul>
               <li>
-                <a href="">Notifications</a>
+                <NavLink to="/user" >Account</NavLink>
               </li>
+
+              {JSON.parse(localStorage.getItem("userLogin")).maLoaiNguoiDung ===
+                "GV" ? (
+                  <li>
+                    <NavLink to="/admin">Course Management</NavLink>
+                  </li>
+                ) : (
+                  <></>
+                )}
               <li>
-                <a href="">Messages</a>
-              </li>
-              <li>
-                <a href="">Account</a>
-              </li>
-              <li>
+
                 <NavLink
                   to="/"
                   style={{ cursor: "pointer" }}
@@ -34,21 +56,13 @@ export class UserLogin extends Component {
                   }}
                 >
                   Log Out
-                </NavLink>
+</NavLink>
               </li>
-              {JSON.parse(localStorage.getItem("userLogin")).maLoaiNguoiDung ===
-              "GV" ? (
-                <li>
-                  <NavLink to="/admin">Course Management</NavLink>
-                </li>
-              ) : (
-                <></>
-              )}
             </ul>
           </div>
         </div>
-        <FaAngleDown color="#fff" />
-      </NavLink>
+        <FaAngleDown color="#fff" className="userImg" />
+      </div>
     );
   }
 }

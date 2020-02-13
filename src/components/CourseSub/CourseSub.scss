@@ -1,37 +1,121 @@
 .courseSub {
     margin: 30px 0;
-    display: flex;
-    align-items: center;
 
-    img {
-        margin-right: 20px;
+    .courseSub__left {
+        img {
+            width: 100%;
+        }
+
+        padding-right: 0px !important;
+        padding-left: 0px !important;
     }
 
-    .courseSub__text {
-        p {
-            margin-bottom: 0;
-            text-align: left;
-            &.title{
-                font-weight: 500;
+    .courseSub__right {
+        .courseSub__text {
+            p {
+                margin-bottom: 0;
+                text-align: left;
+                font-size: 16px;
+
+                &.title {
+                    font-weight: 500;
+
+                    display: block;
+                }
+
+                &.title__responsive {
+                    font-weight: 500;
+
+                    display: none;
+                }
+            }
+
+            .purchase {
+                display: flex;
+                justify-content: flex-start;
+
+                button {
+                    background-color: red;
+                    font-size: 12px;
+                    border: none;
+                    color: white;
+                    outline: none;
+                    border-radius: 5px;
+                }
+            }
+
+            // p {
+            //     &.author {
+            //         font-size: 12px;
+            //     }
+            // }
+
+        }
+    }
+}
+
+@media screen and(max-width:992px) {
+    .courseSub {
+        .courseSub__left {
+            img {
+                height: 60px;
             }
         }
 
-        .purchase {
-            display: flex;
-            justify-content: space-between;
+        .courseSub__right {
+            .courseSub__text {
+                p {
+                    font-size: 12px;
+                }
 
-            button {
-                background-color: red;
-                font-size: 12px;
-                border: none;
-                color: white;
-                outline: none;
-                border-radius: 5px;
+                .purchase {
+                    >.starReviews {
+                        svg {
+                            font-size: 10px;
+                        }
+                    }
+
+                    button {
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .courseSub {
+        .courseSub__left {
+            img {
+                height: 100px;
             }
         }
 
-        span {
-            font-size: 13px;
+        .courseSub__right {
+            .courseSub__text {
+                p {
+                    font-size: 14px;
+                    &.title{
+                        display: none;
+                    }
+                    &.title__responsive{
+                        display: block;
+                    }
+                }
+
+                .purchase {
+                    >.starReviews {
+                        svg {
+                            font-size: 15px;
+                        }
+                    }
+
+                    button {
+                        font-size: 15px;
+                    }
+                }
+            }
         }
     }
 }

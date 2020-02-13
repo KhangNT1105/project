@@ -10,6 +10,7 @@ import {
 import CourseSub from "../../../components/CourseSub/CourseSub";
 export class CourseDetailRight extends Component {
   componentDidMount() {
+    this.props.layDanhSachKhoaHoc(false);
   }
   renderCourseSub = () => {
     let arr = [...this.props.mangDanhSachKhoaHoc];
@@ -69,9 +70,9 @@ export class CourseDetailRight extends Component {
             </div>
           </div>
           <div className="courseDetailRight__sub">
-            {this.renderCourseSub()}
+            {this.props.mangDanhSachKhoaHoc.length !== 0 ? this.renderCourseSub() : <></>}
             <div className="workingHours">
-              <h4 className="mb-5">Working hours</h4>
+              <h4 className="mb-lg-5">Working hours</h4>
               <p>
                 <span>Monday</span> <span>9:30 am - 6.00 pm</span>
               </p>
@@ -108,8 +109,8 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    layDanhSachKhoaHoc: () => {
-      dispatch(layDanhSachKhoaHoc());
+    layDanhSachKhoaHoc: (a) => {
+      dispatch(layDanhSachKhoaHoc(a));
     },
 
     dangKyKhoaHoc: maKhoaHoc => {

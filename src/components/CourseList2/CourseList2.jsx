@@ -10,13 +10,13 @@ export default class CourseList2 extends Component {
     return (
       <NavLink to={`/coursedetail/${item.maKhoaHoc}`} className="courseList2 ">
         <div className="row courseList2__content mt-4">
-          <div className="col-md-4 left ">
-            <img src={item.hinhAnh} className="w-100" alt="" />
+          <div className="col-4 left ">
+            <img src={item.hinhAnh} height="100%" className="w-100" alt="" />
           </div>
-          <div className="col-md-8 right">
+          <div className="col-8 right">
             <h4>{item.tenKhoaHoc}</h4>
             <p className="review">
-              <StarReviews /> <FiUsers /> <span>{item.luotXem}</span>{" "}
+              <StarReviews /> <FiUsers className="mx-3" /> <span>{item.luotXem}</span>{" "}
             </p>
             <div className="moTa">
               <p>
@@ -26,10 +26,10 @@ export default class CourseList2 extends Component {
               </p>
             </div>
             <div className="row ">
-              <div className="col-md-6">
+              <div className="col-6">
                 <h5>Chris Haroun</h5>
               </div>
-              <div className="col-md-6">
+              <div className="col-6">
                 <h5>Free</h5>
               </div>
             </div>

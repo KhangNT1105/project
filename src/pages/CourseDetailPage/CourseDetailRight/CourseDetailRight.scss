@@ -20,21 +20,13 @@
                     justify-content: space-around;
                     border-radius: 10px;
                     font-size: 18px;
-                    transition:.3s;
-                    &:hover{
-                        background-color: red ;
+                    transition: .3s;
+
+                    &:hover {
+                        background-color: red;
                     }
                 }
 
-                &.enroll {
-                    width: 270px;
-                    height: 60px;
-                    border-radius: 10px;
-                    font-size: 17px;
-                    font-weight: 600;
-                    border: 2px solid #17d292;
-                    background-color: transparent;
-                }
             }
 
             p {
@@ -51,6 +43,7 @@
                 border-bottom: 2px solid black;
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
 
                 &:last-child {
                     border-bottom: none;
@@ -74,10 +67,79 @@
 
                 p {
                     font-size: 14px;
-                    font-weight: 500;;
+                    font-weight: 500;
+                    ;
                     display: flex;
                     justify-content: space-between;
                     border-bottom: 1px dashed #e1e2e4;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:992px) {
+    .courseDetailRight {
+        .courseDetailRight__content {
+            .courseDetailRight__cost {
+                button {
+                    &.cost {
+                        font-size: 15px;
+                        height: 50px;
+                    }
+                }
+            }
+
+            .courseDetailRight__info {
+                div {
+                    span {
+                        font-size: 14px;
+
+                        svg {
+                            font-size: 25px;
+                        }
+                    }
+                }
+            }
+
+            .courseDetailRight__sub {
+                .workingHours {
+                    h4 {
+                        font-size: 20px;
+                        font-weight: 700;
+                    }
+
+                    p {
+                        font-size: 10px;
+                        font-weight: 600;
+
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .courseDetailRight {
+        .courseDetailRight__content {
+
+
+            .courseDetailRight__sub {
+                .workingHours {
+                    h4 {
+                        font-size: 30px;
+                        margin-bottom: 15px;
+                        font-weight: 700;
+                    }
+
+                    p {
+                        font-size: 13px;
+                        font-weight: 600;
+
+
+                    }
                 }
             }
         }

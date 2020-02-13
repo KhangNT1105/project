@@ -44,7 +44,7 @@
                     border-radius: 5px;
                     padding: 15px;
                     width: 100%;
-                    height: 250px;
+                    height: auto;
                     background-color: white;
                     position: relative;
 
@@ -64,8 +64,10 @@
                         h1 {
                             color: black;
                             font-size: 30px;
-                            position: relative;
-
+                            // position: relative;
+                            position: absolute;
+                            top:0;
+                            left:20px;
                             &::before {
                                 content: '-';
                                 position: absolute;
@@ -79,7 +81,7 @@
                         span {
                             position: absolute;
                             top: -8px;
-                            right: -10px;
+                            left: 52px;
 
                             em {
                                 font-size: 11px;
@@ -95,6 +97,97 @@
                         h3 {
                             font-size: 22px;
                             font-weight: 600;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .homeUniv {
+
+        .homeUniv__content {
+
+            .row {
+
+                .left {
+                    h2 {
+                        font-size: 25px;
+                    }
+
+                    p {
+                        font-size: 15px;
+                    }
+                }
+
+                .right {
+                    h1 {
+                        font-size: 30px;
+                    }
+
+                    .calendar {
+                        height:170px;
+                        .text {
+                            h3 {
+                                font-size: 20px;
+                            }
+
+                            p {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:576px) {
+    .homeUniv {
+
+        .homeUniv__content {
+
+            .row {
+
+                .left {
+                    h2 {
+                        font-size: 19px;
+                    }
+
+                    p {
+                        font-size: 13px;
+                    }
+                }
+
+                .right {
+                    h1 {
+                        font-size: 23px;
+                    }
+
+                    .calendar {
+                        .date{
+                            h1{
+                                font-size: 23px;
+                                // &::before{
+                                //     right: 10px;
+                                // }
+                            }
+                            span{
+                                font-size: 15px;
+                                // right:0
+                            }
+                        }
+                        .text {
+                            h3 {
+                                font-size: 15px;
+                            }
+
+                            p {
+                                font-size: 13px;
+                            }
                         }
                     }
                 }

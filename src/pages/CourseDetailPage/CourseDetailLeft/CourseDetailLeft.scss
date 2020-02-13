@@ -2,6 +2,8 @@
     .courseDetailLeft__title {
         h1 {
             padding-bottom: 30px;
+            font-weight: 700;
+
             color: black;
         }
 
@@ -66,7 +68,11 @@
                     font-weight: 500;
                     font-size: 18px;
                     letter-spacing: 1px;
-                    padding: 15px 60px;
+                    // padding: 15px 60px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 15px 0;
                     position: relative;
                     width: 33.33%;
                     text-align: center;
@@ -85,6 +91,61 @@
                         }
                     }
 
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:992px) {
+    .courseDetailLeft {
+        .courseDetailLeft__title {
+            h1 {
+                font-size: 30px !important;
+            }
+        }
+
+        .teacher {
+            .teacher__text {
+                p {
+                    font-size: 13px;
+                }
+
+                span {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .category {
+            .category__text {
+                p {
+                    font-size: 13px;
+                }
+
+                span {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .star {
+            p {
+                b {
+                    font-size: 13px;
+                }
+
+                i {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    .courseDetailLeft__content{
+        nav{
+            .nav{
+                a{
+                    font-size: 14px !important;
                 }
             }
         }

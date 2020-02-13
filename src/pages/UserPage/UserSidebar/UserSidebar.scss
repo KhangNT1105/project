@@ -1,8 +1,10 @@
 .userSidebar {
     text-align: left;
-.userSidebar__return{
-    margin-bottom: 50px;
-}
+
+    .userSidebar__return {
+        margin-bottom: 50px;
+    }
+
     .userSidebar__img {
         img {
             width: 250px;
@@ -29,7 +31,8 @@
             color: white;
             letter-spacing: 1px;
             background-color: #17d292 !important;
-            a{
+
+            a {
                 color: white;
                 font-weight: 600;
             }
@@ -44,6 +47,134 @@
                 padding: 10px 0;
 
                 a {}
+            }
+        }
+    }
+}
+
+@media screen and (max-width:992px) {
+    .userSidebar {
+        .userSidebar__img {
+            img {
+                width: 200px !important;
+            }
+        }
+        .userSidebar__name {
+            h4 {
+                font-size: 20px;
+            }
+
+        }
+        .userSidebar__editProfile {
+            button {
+                font-size: 16px;
+            }
+        }
+
+        .userSidebar__someFunction {
+            ul {
+                li {
+                    a {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:768px) {
+    .userSidebar {
+        .userSidebar__img {
+            img {
+                width: 150px !important;
+            }
+        }
+        .userSidebar__name {
+            h4 {
+                font-size: 18px;
+            }
+
+        }
+        .userSidebar__editProfile {
+            button {
+                font-size: 14px;
+            }
+        }
+
+        .userSidebar__someFunction {
+            ul {
+                li {
+                    a {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:576px) {
+    .userSidebar {
+        .userSidebar__img {
+            img {
+                width: 120px !important;
+            }
+        }
+        .userSidebar__name {
+            h4 {
+                font-size: 16px;
+            }
+
+        }
+        .userSidebar__editProfile {
+            button {
+                font-size: 9px;
+            }
+        }
+
+        .userSidebar__someFunction {
+            ul {
+                li {
+                    padding: 5px 0;
+                    a {
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:415px) {
+    .userSidebar {
+        .userSidebar__img {
+            img {
+                width: 60px !important;
+            }
+        }
+        .userSidebar__name {
+            padding: 5px 0;
+            h4 {
+                font-size: 12px;
+            }
+
+        }
+        .userSidebar__editProfile {
+            button {
+                font-size:8px;
+                white-space: nowrap;
+                padding: 7px 12px;
+            }
+        }
+
+        .userSidebar__someFunction {
+            ul {
+                padding-inline-start: 0px !important;
+                li {
+                    padding: 2px 0;
+                    a {
+                        white-space: nowrap;
+                        font-size: 10px;
+                    }
+                }
             }
         }
     }

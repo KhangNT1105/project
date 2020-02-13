@@ -1,26 +1,38 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Route } from "react-router-dom";
 import HeaderAdmin from "../../components/HeaderAdmin/HeaderAdmin";
 import SidebarAdmin from "../../components/SidebarAdmin/SidebarAdmin";
 import UnauthorizedPage from "../../pages/UnauthorizedPage/UnauthorizedPage";
-const renderAdminLayout = props => {
+import FloatingFunction from "../../components/FloatingFunction/FloatingFunction";
+import Loader from "../../components/Loader/Loader";
+const AdminLayout = props => {
   const userLogin = JSON.parse(localStorage.getItem("userLogin"));
   console.log("user", userLogin);
+  const [state, setstate] = useState({
+    loading: true,
+  })
+  useEffect(() => {
+    setTimeout(() => {
+      setstate({
+        loading: false
+      })
+    }, 1000);
+  }, [])
   if (userLogin) {
     if (userLogin.maLoaiNguoiDung === "GV") {
+
       return (
         <Fragment>
           <HeaderAdmin />
+          {state.loading ? <Loader /> : <></>}
           <SidebarAdmin />
+          <FloatingFunction />
           {props.children}
         </Fragment>
       );
     }
     return <UnauthorizedPage />;
   }
-};
-const AdminLayout = props => {
-  return renderAdminLayout(props);
 };
 
 const AdminTemplate = ({ Component, ...props }) => (
